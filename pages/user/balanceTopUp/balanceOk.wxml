@@ -1,0 +1,8 @@
+<!--pages/user/balanceTopUp/balanceOk.wxml-->
+<page>
+  <view class="paySucceed">
+    <image src="/images/pic.png"></image>
+    <view class="paySucceed-pay">充值成功</view>
+    <navigator url="/pages/user/balance/balance" hover-class="none" class="paySucceed-tiao" open-type="reLaunch">返回我的余额</navigator>
+  </view>
+</page>

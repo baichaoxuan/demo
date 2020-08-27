@@ -1,0 +1,70 @@
+<!--index.wxml-->
+<!-- 如果只是展示用户头像昵称，可以使用 <open-data /> 组件 -->
+<import src="/tabbar.wxml"/> 
+<template is="tabBar" data="{{tabBar}}"/>
+<view>
+    <view class="index-header">
+        <view class="index-shuizhan">
+            <text >{{site.name?site.name:'请登录'}}</text>
+        </view>
+        <image class="index-background" src="/images/2222.png" ></image>
+        <image class="index-login" src="{{user.avatar?user.avatar : '/images/tx2.png'}}"></image>
+        <button class="add-info" open-type='getUserInfo' lang="zh_CN" bindgetuserinfo="getUserInfo">
+        </button>
+        <!-- 扫一扫 -->
+        <image src="/images/saoma.png" class="saoyisao" bindtap="SweepQrCode"></image>
+        <!-- <view class="saoyisao" bindtap="SweepQrCode">扫一扫</view> -->
+        <navigator url="/pages/site/loginShizhi/loginShezhi" hover-class="none">
+            <image class="index-shezhi"src="/images/31shezhi.png" ></image>
+        </navigator>
+        <view class="index-line"></view>
+        <view class="index-content">
+            <navigator url="/pages/site/embody/embody" hover-class="none">
+                <view>￥{{site.deposit_amount?site.deposit_amount:'0.00'}}</view>
+                <view class="price">我的押金</view>
+            </navigator>
+            <navigator url="/pages/site/balance/balance" hover-class="none">
+                <view>￥{{site.balance?site.balance:'0.00'}}</view>
+                <view class="price" >我的余额</view>
+            </navigator>
+        </view>
+    </view>
+    <view class="index-bottom">
+        <view class="index-bLine"> </view>
+        <text>我的进货</text>
+        <view class="index-list">
+            <navigator url="/pages/site/shop/shop" hover-class="none">
+                <image src="/images/11.png" ></image>
+                <view class="index-shop">商城</view>   
+            </navigator>
+            <navigator url="/pages/site/cart/cart" hover-class="none">
+               <image src="/images/22.png" ></image>
+                <view>购物车</view>   
+            </navigator>
+            <navigator url="/pages/site/orderForm/orderForm" hover-class="none">
+               <image src="/images/33.png" ></image>
+                <view>进货单</view>   
+            </navigator>
+        </view>
+    </view>
+    <view class="index-back" bindtap="go_back">
+        <view>代押桶</view>
+        <view>{{user.bucket_deduct_num}}桶 
+            <image src="/images/jinru.png" style="float:right;width:14rpx;height:22rpx;margin-top: 34rpx;margin-left: 10rpx;"></image>
+        </view>
+    </view>
+    <view class="index-back" bindtap="go_huishou">
+        <view>代收杂牌桶</view>
+        <view>{{user.bucket_unrecycle_num}}桶
+            <image src="/images/jinru.png" style="float:right;width:14rpx;height:22rpx;margin-top: 34rpx;margin-left: 10rpx;"></image>
+        </view>
+    </view>
+     <view class="index-back" bindtap="go_bucketyj">
+        <view>代收押金桶</view>
+        <view>{{user.bucket_undeposit_num}}桶
+            <image src="/images/jinru.png" style="float:right;width:14rpx;height:22rpx;margin-top: 34rpx;margin-left: 10rpx;"></image>
+        </view>
+    </view>
+    <view style="display:{{is_red==1?'nlock':'none'}}" class="xiaodian"></view>
+</view>
+

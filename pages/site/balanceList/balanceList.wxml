@@ -1,0 +1,25 @@
+<view>
+  <scroll-view class="scroll-wrap">
+    <view class="none-wrap" wx:if="{{no_record}}">
+        <image src="/images/nodata.png" class="none-img"></image>
+        <view class="apply-record">暂无记录</view>
+    </view>
+    <view class="staff-item" wx:for="{{list}}" wx:key="index" bindtap="go_balanceDetails" data-id = "{{item.id}}">
+      <view>
+        <view style="display:flex">
+          <view style="margin-right: 10rpx;">提现金额</view>
+          <view>{{item.amount}}元</view>
+        </view>
+        <view style="color: #c0c0c0;line-height: 46rpx;">
+          {{item.created}}
+        </view>
+      </view>
+      <view >
+        <text style="color:#80d115" wx:if="{{item.audit_status == 1}}">成功</text>
+        <text style="color:#979797"  wx:if="{{item.audit_status == -1}}">失败</text>
+        <text style="color:#ff7200"  wx:if="{{item.audit_status == 0}}">审核中</text>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="already-bottom" wx:if="{{is_has_more==0}}">没有更多了~</view>
+</view>

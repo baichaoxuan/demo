@@ -1,0 +1,34 @@
+<form bindsubmit="formSubmit">
+  <view class="balance-topup">
+    <view class="balance-title">余额提现</view>
+    <view class="balance-input">
+      <text class="balance-rbm">￥</text>
+      <input name="minPrice" placeholder="最低提现{{list.min_withdrawl?list.min_withdrawl:'0'}}元" placeholder-style="font-size: 25.4rpx;color:#c0c0c0;" style="width:500rpx;" value="{{value?value:''}}" ></input>
+      <view style="font-size: 25.4rpx;color: #32a2f0;" bindtap="allTx">全部提现</view>
+    </view>
+    <view class="current-balance" >可提现余额 : {{list.balance?list.balance:'0.00'}}</view>
+  </view>
+  <view class="balance-wechat">
+      <view>到账微信</view>
+      <view wx:if="{{list.tx_nickname}}" class="balanceTack-wechat">
+        <image src="{{list.tx_avatar}}"></image>
+        <text>{{list.tx_nickname}}</text>
+      </view>
+      <!-- <view wx:else style="color: #32a2f0;">绑定提现微信</view> -->
+      <button class="add-info" wx:else style="color: #32a2f0;"open-type='getUserInfo' lang="zh_CN" bindgetuserinfo="getUserInfo">绑定提现微信</button>
+    </view>
+  <view class="balance-foot">
+    <button class="balance-affirm" formType="submit">确认提现</button>
+  </view>
+  <view class="view-list" bindtap="go_balancelist">查看提现记录</view>
+  <!-- 输入提现密码 -->
+  <view class="bucket_zhezhao" wx:if="{{isShowZhezhao}}">
+    <view class="bucket_content">
+      <view style="text-align: center;">输入提现密码</view>
+      <image src="/images/guanbi.png" bindtap="hidZhezhao"></image>
+      <input placeholder="请输入提现密码" placeholder-style="font-size: 25.4rpx;color:#c0c0c0;" password bindinput='getInputValue'></input>
+      <view class="bucket_btn" bindtap="balance_check">确认</view>
+      <view class="forget-password" bindtap="forget_password">忘记密码？</view>
+    </view>
+  </view>
+</form>

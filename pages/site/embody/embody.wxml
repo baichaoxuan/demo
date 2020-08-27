@@ -1,0 +1,45 @@
+<!--pages/embody/embody.wxml-->
+<page style="width:100%;overflow-x:hidden">
+    <view class="balance">
+        <view class="balance-top {{is_applying == 0?'':'balance-top1'}}">
+            <image src="/images/2222.png"></image>
+            <!-- 押金正在退回时，查看详情 -->
+            <view class="view-details" bindtap="view_details" wx:if="{{is_applying != 0}}">
+                <image src="/images/tishi.png"></image>
+                <text>您有押金正在申请退回中，前往查看详情>></text>
+            </view>
+            <view class="embody-down">
+                <view class="balance-yue {{is_applying == 0?'':'balance-yue1'}}">押金金额</view>
+                <view class="balance-money {{is_applying == 0?'':'balance-money1'}}">￥{{deposit_amount>0?deposit_amount:'0.00'}}</view>
+                <navigator url="/pages/site/deposit/deposit">查看详情</navigator>
+                <view class="back-embody {{is_applying == 0?'':'back-embody1'}}">
+                    <view bindtap="one_show">我要退押</view>
+                </view>
+            </view>
+        </view>
+        <!-- 暂无数据时显示 -->
+        <view class="none-wrap" wx:if="{{deposit_amount == 0}}">
+                <image class="yj_kong" src="/images/yj_kong.png" ></image>
+                <view class="apply-record" style="margin-left: 324rpx;color:#666666;">暂无数据</view>
+        </view>
+        <scroll-view class="scroll-wrap" wx:else>
+            <view>
+                <view style="width: 12.68rpx;height: 30.8rpx;background-color: #3369ff;display:inline-block; margin: 0 10rpx -2rpx 28rpx"></view>
+                <text style="font-size:29rpx">总桶数量 {{total_num}}桶</text>
+            </view>
+            <view class="balance-center"  wx:for="{{list}}" wx:key="index">
+                <view class="balance-li">
+                    <view style="display:flex">
+                        <image src="/images/1.png"></image>
+                        <view style="line-height: 43rpx;">
+                            <view style="font-size: 25.36rpx;color:#000">{{item.name}}</view>
+                            <view style="font-size: 21.74rpx;color: #a9a9a9;line-height: 27.17rpx;">金额：￥{{item.price}}</view>
+                        </view>
+                    </view>
+                    <view style="font-size：32.6;color:#000">{{item.num}}桶</view>
+                </view>
+            </view>
+        </scroll-view>
+        <view class="already-bottom" wx:if="{{is_has_more==0}}">没有更多了~</view>
+    </view>
+</page>

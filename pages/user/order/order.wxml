@@ -1,0 +1,59 @@
+<page>
+    <view class="orderForm">
+        <view class="shop-kind" >
+            <text class="menu-tab {{tab_active==0?'tab-active':''}}" data-gstatus="" bindtap="getList" >全部</text>
+            <text class="menu-tab {{tab_active==1?'tab-active':''}}" data-gstatus="1" bindtap="getList" >待付款</text>
+            <text class="menu-tab {{tab_active==2?'tab-active':''}}" data-gstatus="2" bindtap="getList" >待发货</text>
+            <text class="menu-tab {{tab_active==3?'tab-active':''}}" data-gstatus="3" bindtap="getList" >待收货</text>
+            <text class="menu-tab {{tab_active==4?'tab-active':''}}" data-gstatus="4" bindtap="getList" >已完成</text>
+        </view>
+        <scroll-view class="scroll-wrap">
+            <view class="none-wrap" wx:if="{{no_record}}">
+                <image src="../../images/nodata.png" class="none-img"></image>
+                <view class="apply-record">暂无记录</view>
+            </view>
+            <view class="orderForm-item  " wx:for="{{list}}" wx:key="id">
+                <view class="orderForm-li">
+                    <view class="orderForm-t">
+                        <text style="letter-spacing: 2rpx;">{{item.created}}</text>
+                        <text class="orderForm-state {{item.gstatus==4?'status4':''}}" style="color:{{item.gstatus_name == '已取消'?'#a4a4a4':''}}">{{item.gstatus_name}}</text>
+                    </view>
+                    <navigator url="../orderView/orderView?id={{item.id}}">
+                        <view class="shopdetails-img" wx:for="{{item.item}}" wx:key="product_id" wx:for-item="product" wx-for-index="index2">
+                            <view style="display:flex">
+                                <image class="shopCar-img" src="{{host}}{{product.img}}"></image>
+                                <view style="display: inline-block;margin-left: 20rpx;line-height:36rpx;">
+                                    <view class="shop-price">{{product.name}}</view>
+                                    <view class="shopCar-guige">规格:{{product.sku_desc}}</view>
+                                </view>
+                            </view>
+                            <view >
+                                <view class="shop-soldout">￥{{product.unit_price}}</view>
+                                <view class="shopdetails-number">x {{product.num}}</view>
+                            </view>
+                        </view>
+                    </navigator>
+                    <view class="indexBujiao-sub">
+                        <text class="indexBujiao-add">共计{{item.pdt_num}}件</text>
+                        <text class="indexBujiao-addprice">
+                            实付款
+                        </text>
+                        <text style="color:#eb4739; font-size: 32.61rpx;font-weight: bold;line-height: 1rpx;margin-bottom: 4rpx;">
+                            ￥{{item.pdt_price}}
+                        </text>
+                    </view>
+                    <view style="display:flex;align-items:center;justify-content:flex-end;">
+                        <block wx:if="{{item.gstatus==1}}">
+                            <text class="orderForm-cancel" data-id="{{item.id}}" data-index="{{index}}" bindtap="cancelOrder">取消订单</text>
+                            <text class="orderForm-pay" data-id="{{item.id}}" data-index="{{index}}" bindtap="payOrder">去支付</text>
+                        </block>
+                        <block wx:if="{{item.gstatus==3}}">
+                            <text class="orderForm-pay" data-id="{{item.id}}" data-index="{{index}}" bindtap="receiveOrder" >确认收货</text>
+                        </block>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+        <view class="already-bottom" wx:if="{{is_has_more==0}}">-- 没有更多了 --</view>
+    </view>
+</page>

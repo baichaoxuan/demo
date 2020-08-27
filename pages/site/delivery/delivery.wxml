@@ -1,0 +1,91 @@
+<!--送水回桶-->
+<view style="width:100%;overflow-x:hidden;">
+  <view class="delivery-tishi">
+    <image src="/images/tishi.png" class="delivery-img"></image>
+    <view >请提示用户：置换非平台运营品牌桶需补差价，差价不予退还</view>
+  </view>
+  <view style="margin-top:74rpx">
+    <view class="delivery_title">需收回桶</view>
+    <view class="delivery_list" style="background-color: #fff; ">
+      <view class="indexDetails-li">
+        <view class="shopdetails-img" wx:for="{{need_list}}" wx:key="index">
+          <view style="display:flex">
+              <image class="shopCar-img" src="{{host+item.image}}"></image>
+              <view style="display: inline-block;margin-left: 20rpx;line-height:36rpx;margin-top: 10rpx;">
+                  <view class="shop-price">{{item.name}}</view>
+                  <view class="shopCar-guige"></view>
+              </view>
+          </view>
+          <view style="margin-top:10rpx;">
+              <view class="shopdetails-num">x {{item.num}}</view>
+          </view>
+        </view>
+      </view>  
+      <view class="indexDetails-add">共计{{total_num}}桶</view>
+    </view>
+  </view>
+  <view>
+    <view class="delivery_title">实收回桶</view>
+    <view>
+      <view class="item">
+        <!-- <movable-area>
+          <movable-view  class="shopdetails-img"  direction="horizontal" inertia="true"  x="{{item.xmove}}" data-productIndex="{{index}}" bindchange="handleMovableChange"> -->
+            <view class="shopdetails-imgs"  wx:for="{{list}}" wx:key="index">
+              <view style="margin-top: 15rpx;line-height: 45rpx;display: flex;">
+                <image class="shopCar-img" src="{{host+item.image}}"></image>
+                <view class="shop-price" style="line-height:104rpx">{{item.name}}</view>
+              </view>
+              <view style="margin-top:10rpx;">
+                <view style="display: flex;align-content: center;margin-top:36rpx">
+                  <image style="width: 28rpx;height: 28rpx;margin-top:8rpx;margin-right：8rpx；margin-left：20rpx " src="/images/jianshao2.png" bindtap="jianshao" data-index='{{index}}'></image>
+                  <input type="number" class="shopdetails-number" bindinput='Manual' value='{{item.num}}' data-index='{{index}}'></input>
+                  <image style="width: 28rpx;height: 28rpx; margin-top:8rpx;margin-left：8rpx" src="/images/zengjia.png" bindtap="zengjia" data-index='{{index}}'></image>
+                </view>
+              </view>
+            </view>
+            <!-- </movable-view>
+        </movable-area> -->
+        <!-- <view class="delete-btn" data-index="{{index}}" bindtap="del_item">删除</view> -->
+        <view class="delivery_tianjia">
+          <text>共计{{num}}桶</text>
+          <view class="delivery_add">
+            <picker bindchange="bindPickerChange" value="0" range="{{brand}}" range-key="name">
+              <view class="picker">
+                 添加
+              </view>
+            </picker>
+          </view>
+        </view>
+        <view style="box-sizing:border-box;padding: 15rpx 30rpx;border-top: 2rpx solid #f6f6f6;display:{{cj_amount>0 ||ya_amount>0?'block':'none'}}" > 
+         <view style="display:{{cj_amount>0?'block':'none'}}">
+          <view class="delivery-cj" >
+            <view>补交差价<text>(差价不予退还)</text></view>
+            <view class="delivery-prc">￥{{cj_amount}}</view>
+          </view>
+         </view>
+          <view style="display:{{ya_amount>0?'block':'none'}}">
+            <view class="delivery-yj" >
+              <view>补交押金<text>(押金退桶时退还)</text></view>
+              <view class="delivery-prc">￥{{ya_amount}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- <view class="diff-price">请提示用户，{{tips}}</view> -->
+  </view>
+  <view class="indexBujiao-foot" >
+    <view class="indexBujiao-total">
+        <view style="font-size:25.4rpx">总计 <text style="color:#eb4739;font-size:32.6rpx;font-weight: bold;"> ￥{{add_amount>0?add_amount:'0.00'}}</text></view>
+        <view class="indexBujiao-pay" bindtap="toSubmit">确认</view>
+    </view>
+    <view class="indexPail-erweima" wx:if="{{isErweima}}">
+      <view class="indexPail-zhezhao">
+          <image class="indexPail-close" src="/images/guanbi.png" bindtap="QRcode_close"></image>
+          <text class="QR_code">扫码支付</text>
+          <view ><image class="erweima" src="{{qrimg}}"></image></view>
+      </view>
+    </view>
+  </view>
+  <view style="height:300rpx"></view>
+</view>

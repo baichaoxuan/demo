@@ -1,0 +1,75 @@
+<!--index.wxml-->
+<!-- 如果只是展示用户头像昵称，可以使用 <open-data /> 组件 -->
+<import src="/tabbar.wxml"/> 
+<template is="tabBar" data="{{tabBar}}"/>
+<page>
+    <view class="orderForm">
+        <view class="shop-kind" >
+            <image class="index-bg" src="/images/bg.png"></image>
+            <view class="index-title">
+                <view class="index-item" bindtap="go_waterOrder">
+                    <image src="/images/huoche.png"></image>
+                    <text>送水订单</text>
+                </view>
+                <view class="index-item" bindtap="go_sendbucket">
+                    <image src="/images/1.png"></image>
+                    <text>退桶订单</text>
+                </view>
+                <view class="index-line"></view>
+            </view>
+        </view>
+        <view class="blue-line"></view>
+        <view class="index-waite">
+            待接单 {{list.length}}单
+        </view>
+        <scroll-view class="scroll-wrap">
+            <view class="none-wrap" wx:if="{{no_record}}">
+                <image src="../../images/nodata.png" class="none-img"></image>
+                <view class="apply-record">暂无记录</view>
+            </view>
+            <view class="orderForm-item  " wx:for="{{list}}" wx:key="id">
+                <view class="orderForm-li">
+                    <view class="orderForm-t">
+                        <text>{{item.created}}</text>
+                        <text class="orderForm-state {{item.gstatus=='completed'?'status4':''}}">{{item.gstatus_name}}</text>
+                    </view>
+                    <navigator url="/pages/site/userorder/info?id={{item.id}}">
+                        <view class="shopdetails-img" wx:for="{{item.items}}" wx:key="product_id" wx:for-item="product" wx-for-index="index2">
+                            <view style="display:flex">
+                                <image class="shopCar-img" src="{{product.img?host+product.img:''}}"></image>
+                                <view style="display: inline-block;margin-left: 20rpx;line-height:36rpx;margin-top: 10rpx;">
+                                    <view class="shop-price">{{product.name}}</view>
+                                    <view class="shopCar-guige">规格:{{product.sku_desc}}</view>
+                                </view>
+                            </view>
+                            <view style="margin-top:10rpx;">
+                                <view class="shopdetails-number">x {{product.num}}</view>
+                            </view>
+                        </view>
+                    </navigator>
+                    <view class="index-address">
+                        <view>
+                            <image class="index-image" src="/images/shijian.png"></image>
+                            <text class="index-time">{{item.forward}}</text>
+                        </view>
+                        <view>
+                            <image class="index-image" src="/images/dizhi.png"></image>
+                            <text class="index-time">{{item.area_addr}}</text>
+                        </view>
+                    </view>
+                    <view class="{{item.gstatus =='completed'?'indexBujiao-sub1':'indexBujiao-sub '}}">
+                        <block wx:if="{{item.gstatus =='to_assign'}}">
+                            <view class="index-refuse" bindtap="refuse" data-orderId="{{item.id}}" data-accept="-1">拒单</view>
+                            <view class="index-accept" bindtap="accept"  data-orderId="{{item.id}}" data-accept="1">接单</view>
+                        </block>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+        <!-- <view class="already-bottom" wx:if="{{is_has_more==0}}">-- 没有更多了--</view> -->
+        <view style="height:100rpx"></view>
+        <text class="{{mall_order_num!=0?'shop_details_addNum1 ':'shop_details'}}">{{mall_order_num>99?'99+':mall_order_num}}</text>
+        <text class="{{mall_sorder_num!=0?'shop_details_addNum ':'shop_details'}}">{{mall_sorder_num>99?'99+':mall_sorder_num}}</text>
+    </view>
+</page>
+

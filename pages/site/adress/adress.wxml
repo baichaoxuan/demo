@@ -1,0 +1,18 @@
+<form bindsubmit="formSubmit">
+    <view class="adress-person">
+        <text>收货人</text>
+        <input type="text" name="username" placeholder-style="color:#ababab" placeholder="" class="receive-goods" maxlength="20" minlength="2" value="{{site.truename?site.truename : ''}}"></input>
+    </view>
+    <view class="adress-phone">
+        <text>手机号</text>
+        <input type="number" name="usermobile" placeholder-style="color:#ababab" placeholder="" class="receive-goods" maxlength="11" value="{{site.mobile?site.mobile : ''}}"></input>
+    </view>
+    <view class="adress-adress">
+        <text>配送地址</text>
+        <!-- <picker mode="region" bindchange="bindRegionChange" custom-item="{{customItem}}" class="picker-area" value="{{region}}"> -->
+            <view class=" picker-area picker "  name="customer_area">{{region[0]}} {{region[1]}} {{region[2]}}</view>
+         <!-- </picker> -->
+    </view>
+    <input class="adress-input" type = "text" placeholder="{{site.address?'': '请填写详细办公地址（如道路、门牌号、小区、楼栋号）'}}" name="address" value="{{site.address }}" placeholder-style="color: #c3c3c3;"/>
+    <button class="adress-submit" formType="submit">提交</button>
+</form>

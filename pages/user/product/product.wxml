@@ -1,0 +1,78 @@
+<!--pages/user/product/product.wxml-->
+<view class="shop-details">
+  <view class="shop-banner">
+    <swiper indicator-dots= 'true' indicator-active-color="#eb4739"
+      autoplay='true' interval='5000' duration='500' style="width:100%;height:750rpx">
+      <block wx:for="{{product.bigimgs}}" wx:key="*this">
+        <swiper-item>
+          <image src="{{host+item}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="shop-detalisname">
+    <text class="shop-price">￥<text class="shop-num">{{product.retail_price}}</text>
+    </text>
+    <text class="shop-soldout">已售 {{product.sales}}</text>
+    <view class="shop-name">{{product.name}}</view>
+    <view class="shop-guige">规格：{{product.sku_desc}}</view>
+  </view>
+  <view class="shop-explain" bindtap="show" wx:if="{{product.is_explicit==1}}">
+    <text style="color:#aaa;">服务说明 </text>
+    <text class="product_explain"> 1.首次订水，需支付押金{{deposit_price}}元/桶押金 2.如无空水桶或有其他品牌空桶，需补差价置换押金，差价价格以配送员实际收取为准</text>
+    <image src="/images/jinru.png" style="float:right;width:14rpx;height:22rpx;margin-top: 35rpx;"></image>
+  </view>
+  <view class="shop-deta">
+    <text>商品详情</text>
+  </view>
+  <rich-text nodes="{{product.content}}"></rich-text>
+  <!-- 立即购买 -->
+  <view class="shop-footer">
+    <navigator class="shop-car" url="../cart/cart" bindtap="shopping_cart">
+      <view class="shop_details_addNum {{cart_num==0?'shop_details':''}}" >{{cart_num>99?'99+':cart_num}}</view>
+      <image src="/images/gouwucheman0.png"></image>
+      <view>购物车</view>
+    </navigator>
+    <view>
+        <view class="shop-addcar" bindtap="add2cart" data-id="{{product.id}}">加入购物车</view>
+        <view class="shop-buy" bindtap="showRule">立即购买</view>
+    </view>
+  </view>
+  <!-- 立即购买浮层 -->
+  <view class="shopdetails-zhezhao {{isRuleTrue?'isRuleShow':'isRuleHide'}}">
+    <view class="shopdetails-bg">
+      <view class="shopdetails-img">
+        <image src="{{product.img?host+product.img:''}}"></image>
+        <view >
+          <text class="shop-price" style="margin-top: 84rpx;display: block;margin-left: 23rpx;">￥<text class="shop-num">{{product.retail_price}}</text></text>
+          <text class="shop-soldout">已售 {{product.sales}}</text>
+        </view>
+      </view>
+      <image src="/images/guanbi.png" style="width:36rpx;height:36rpx;position: absolute;right: 48rpx;top: 23.5rpx;" bindtap="hideRule"></image>
+      <view class="line"></view>
+      <view class="shop_details-number"> 
+        <text style="font-size: 26.01rpx;">购买数量</text>
+        <view style="display: flex;align-content: center;">
+          <image style="width: 28rpx;height: 28rpx;margin-top:8rpx;margin-left：20rpx；margin-right：8rpx" src="{{num==1?'/images/jianshao.png':'/images/jianshao2.png'}}" bindtap="jianshao" data-num="{{num}}"></image>
+          <input type = "number"class="shopdetails-number" bindinput='Manual' value='{{num}}'></input>
+          <image style="width: 28rpx;height: 28rpx; margin-top:8rpx;margin-left：8rpx" src="/images/zengjia.png" bindtap="zengjia" data-num="{{num}}"></image>
+        </view>
+      </view>
+      <view class="shopdetails-addpric">
+        <text>合计</text>
+        <text style="font-weight: bold;">￥{{subPrice}}</text>
+      </view>
+      <view class="shopdetails-foot-buy"  bindtap = "directBuy">立即购买</view>
+    </view>
+  </view>
+  <!-- 展示说明浮层 -->
+  <view class="shopdetails-zhezhao {{isShow?'isRuleShow':'isRuleHide'}}">
+    <view class="bucket_content">
+      <view class="explain_title">服务说明</view>
+      <view>1.首次订购桶装水，需缴纳{{deposit_price}}元/桶押金</view>
+      <view>2.如无空水桶或有其他品牌空桶，需补差价置换押金，差价价格以配送员实际收取为准</view>
+      <view class="bucket_btn" bindtap="close_show">知道了</view>
+    </view>
+  </view>
+  <view style="width:100%;height:262rpx"></view>
+</view>

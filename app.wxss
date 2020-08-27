@@ -1,0 +1,65 @@
+/**app.wxss**/
+/**app.wxss**/
+page{
+  background-color: #eee;
+  font-family: '微软雅黑';
+}
+.container {
+  height: 100%;
+  box-sizing: border-box;
+} 
+.fontColor{
+  color: #e23139;
+}
+.backColor{
+  background-color: #e23139;
+}
+.borderColor{
+  border-color: #e23139;
+}
+.clear{
+  zoom: 1;
+}
+.clear:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+.menu-item{  
+  width: 32%;  
+  float: left;  
+  text-align: center;  
+  padding-top: 8px;  
+}  
+.menu-item1{  
+  width: 24%;  
+  float: left;  
+  text-align: center;  
+  padding-top: 8px;  
+}  
+.menu-item2{  
+  width: 50%;  
+  float: left;  
+  text-align: center;  
+  padding-top: 8px;  
+}  
+.img{ 
+  width: 42rpx;  
+  height: 44rpx;  
+  display: block;  
+  margin: 2rpx auto;
+}  
+.clear{  
+  clear: both;  
+}  
+.tab-bar{  
+  position: fixed;  
+  width: 100%;  
+  padding: 0px 2%; 
+  z-index:9; 
+  background-color: #fff;
+}  
+.button{
+  margin: 130px;
+}
+

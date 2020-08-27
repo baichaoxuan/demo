@@ -1,0 +1,152 @@
+<page>
+  <view>
+    <view class="indexDetails-head">
+      {{list.gstatus_name}}
+    </view>
+    <!-- 押金桶信息 -->
+     <view style="background-color:#fff;margin-top:16rpx;padding:11rpx 22rpx;padding-top: 0;">
+      <view class="backet-detail">押金桶信息</view>
+      <view class="shopdetails-img" wx:for="{{list.item}}" wx:key="index">
+          <view style="display:flex">
+              <image class="shopCar-img" src="{{host+item.img}}"></image>
+              <view style="display: inline-block;margin-left: 20rpx;line-height: 21px;margin-top:13rpx">
+                  <view class="shop-price">{{item.name}}</view>
+              </view>
+          </view>
+          <view style="margin-top:10rpx;">
+              <view class="shop-soldout">￥{{item.unit_price}}</view>
+              <view class="shopdetails-number">x {{item.num}}</view>
+          </view>
+      </view>
+    </view>
+    <!-- 退桶信息 -->
+    <view style="background-color:#fff;margin-top:16rpx;padding:11rpx 22rpx;padding-top: 0;display:{{list.gstatus>1?'block':'none'}}">
+      <view class="backet-detail">退桶信息</view>
+      <view class="shopdetails-img" wx:for="{{list.item_real}}" wx:key="index">
+          <view style="display:flex">
+              <image class="shopCar-img" src="{{host+item.img}}"></image>
+              <view style="display: inline-block;margin-left: 20rpx;line-height: 21px;margin-top:13rpx">
+                  <view class="shop-price">{{item.name}}</view>
+              </view>
+          </view>
+          <view style="margin-top:10rpx;">
+              <view class="shop-soldout">￥{{item.unit_price}}</view>
+              <view class="shopdetails-number">x {{item.num}}</view>
+          </view>
+      </view>
+      <view class="depositDetails-add">
+        <view style="margin-top: 10rpx;margin-right: 15rpx;">共计 {{list.num}}件</view>
+        <view class="depositDetails-price">总计 <text>￥{{list.total_price}}</text></view>
+      </view>
+    </view>
+    <!-- 退款详情 -->
+    <view class="deposit-refund" wx:if="{{!is_user}}">
+      <view style="padding-bottom:27.2rpx;">退款信息</view>     
+       <view class="appointment-time" wx:if="{{!list.freeya_amount == 0}}">
+        <view>免押金退还</view>
+        <view>￥{{list.freeya_amount}}</view>
+      </view>
+       <view class="appointment-time">
+        <view>退回微信</view>
+        <view>￥{{list.price}}</view>
+      </view>
+    </view>
+    <!-- 预约上门时间 -->
+    <view class="deposit-time">
+      <view class="appointment-time">
+        <view>预约上门时间</view>
+        <view>{{list.ordereds}}</view>
+      </view>
+      <view class="mark">
+        <text>备注</text>
+        <view style="width: 90%;">{{list.memo}}</view>
+      </view>
+      <view>
+      
+      </view>
+    </view>
+    <!-- 退款信息 -->
+    <view class="deposit-refund">
+      <view style="padding-bottom:27.2rpx;">退款信息</view>     
+      <view class="refund-item" hidden="{{list.gstatus<3}}">
+        <image src="/images/radio{{list.gstatus==3?'-checked':''}}.png"></image>
+        <view class="refund-line"></view>
+        <view>
+          <view class="refund-explain">平台审核通过，申请退回的押金已退回至您的余额</view>
+          <view class="refund-time">{{list.audited}}</view>
+        </view>
+      </view>
+      <view class="refund-item" hidden="{{list.gstatus > 0}}">
+        <view class="refund-line"></view>
+        <image src="/images/radio{{list.gstatus==0?'-checked':''}}.png"></image>
+        <view>
+          <view class="refund-explain">服务已取消，如有需求可在我的押金重新申请</view>
+          <view class="refund-time">{{list.canceled}}</view>
+        </view>
+      </view>
+      <view  class="refund-item" hidden="{{list.gstatus <2}}">
+        <image src="/images/radio{{list.gstatus==2?'-checked':''}}.png"></image>
+        <view wx:if = "{{list.gstatus == 2}}" class="refund-line"></view>
+        <view wx:else class="refund-line1"></view>
+        <view>
+          <view class="refund-explain">押金桶已回收，等待平台退款审核</view>
+          <view class="refund-time">{{list.bucketbacked}}</view>
+        </view>
+      </view>
+      <view  class="refund-item" hidden="{{list.gstatus >2}}">
+        <image src="/images/radio{{list.gstatus==1?'-checked':''}}.png"></image>
+        <view  class="{{list.gstatus == 1?'refund-line':'refund-line1'}}"></view>
+        <view>
+          <view class="refund-explain">配送小哥已在途中，配送员：{{list.site_info.truename}} <text bindtap="freeTell" data-phone="{{list.site_info.mobile}}" style="color:#0749f0">{{list.site_info.mobile}}</text></view>
+          <view class="refund-time">{{list.created}}</view>
+        </view>
+      </view>
+      <view  class="refund-item">
+        <image src="/images/radio.png"></image>
+        <view>
+          <view class="refund-explain">申请退押金已提交，等待平台回收空桶</view>
+          <view class="refund-time">{{list.created}}</view>
+        </view>
+      </view>
+    </view>
+    <!-- 订单详情 -->
+    <view class="indexDetails-bottom">
+        <view>订单详情</view>
+        <view >
+            <text>订单编号 </text>
+            <text>{{list.id}}</text>
+            <text class="indexDetails-copy" bindtap="copy">复制</text>
+        </view>
+        <view>
+            <text>申请时间 </text>
+            <text>{{list.created}}</text>
+        </view>
+         <view hidden="{{list.gstatus != 0}}">
+            <text>取消时间 </text>
+            <text>{{list.canceled}}</text>
+        </view>
+        <view hidden="{{list.gstatus <2}}">
+            <text>回收时间 </text>
+            <text>{{list.bucketbacked}}</text>
+        </view>
+        <view hidden="{{list.gstatus<3}}">
+            <text>退款时间 </text>
+            <text>  {{list.audited}}</text>
+        </view>
+        <view hidden="{{list.gstatus<3}}">
+            <text>退款金额 </text>
+            <text>{{list.price}}</text>
+        </view>
+        <view >
+            <text>退回微信 </text>
+            <text>{{list.nickname}}</text>
+        </view>
+    </view>
+     <view class="cancel-application" wx:if="{{list.gstatus_name == '待回收'}}">
+        <block >
+            <view class="orderForm-cancel" data-id="{{apply_id}}" bindtap="cancelOrder">取消申请</view>
+        </block>
+    </view>
+    <view style="width:100%;height:150rpx"></view>
+  </view>
+</page>

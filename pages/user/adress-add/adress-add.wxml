@@ -1,0 +1,26 @@
+<form bindsubmit="formSubmit">
+    <view class="adress-person">
+        <view style="padding-left:34rpx">收货人</view>
+        <input type="text" name="truename" placeholder-style="color:#ababab" placeholder="请填写收件人姓名" class="receive-goods" maxlength="10" minlength="2" value="{{truename}}"></input>
+    </view>
+    <view class="adress-phone">
+        <view style="padding-left:34rpx">手机号</view>
+        <input type="number" name="mobile" placeholder-style="color:#ababab" placeholder="请输入手机号" class="receive-goods" maxlength="11" value="{{mobile}}"></input>
+    </view>
+    <view class="adress-adress">
+        <view style="padding-left:34rpx">所在区域</view>
+        <input class="receive-goods" name="area" placeholder="请选择城市区县" bindtap="getLocation" placeholder-style="color:#ababab" value="{{area}}"/>
+    </view>
+    <view class="adress-adress">
+        <view style="padding-left:30rpx">详细地址</view>
+        <input class="adress-input" type = "text" placeholder='请填写详细办公地址（如道路、门牌号、小区、楼栋号）' name="address" value="{{address}}" placeholder-style="color: #c3c3c3;"/>
+    </view>
+    <view class="address-mr">
+        <view>设为默认</view>
+        <view class="address-switch">
+            <switch style="zoom: 0.65;" checked="{{switch1Checked}}" bindchange="switch1Change"/>
+        </view>
+    </view>
+    <view class="address-del"  bindtap="delAddr" data-id="{{item.id}}">删除地址信息</view>
+    <button class="adress-submit" formType="submit">提交</button>
+</form>

@@ -1,0 +1,23 @@
+<page>
+    <view class="balance">
+        <view class="balance-top {{activity?'balance-top1':''}}">
+            <image src="/images/2222.png"></image>
+             <!-- 押金正在退回时，查看详情 -->
+            <view class="view-details" wx:if="{{activity}}" bindtap="go_balanceDiscounts">
+                <image src="/images/tishi.png"></image>
+                <text>{{activity.name}}活动正在进行中，立即参与>></text>
+            </view>
+            <view class="balance-yue {{activity?'balance-yue1':''}}">账户余额</view>
+            <view class="balance-money {{activity?'balance-money1':''}}">￥{{balance}}</view>
+            <navigator url="{{activity?'/pages/user/balanceTopUp/balanceDiscounts':'/pages/user/balanceTopUp/balanceTopUp'}}">充值</navigator>
+        </view>
+    </view>
+    <view class="balance-record" style="margin-top:{{activity?'404rpx':'330rpx'}}" bindtap="go_record">
+        <view>交易记录</view>
+        <image src="/images/jinru.png"></image>
+    </view>
+    <view class="balance-record" bindtap="go_issue">
+        <view>常见问题</view>
+        <image src="/images/jinru.png"></image>
+    </view>
+</page>

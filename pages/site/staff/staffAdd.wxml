@@ -1,0 +1,29 @@
+<form bindsubmit="formSubmit">
+   <view class="adress-person">
+    <text>登录账号</text>
+    <input wx:if="{{account}}" type="text"  name="accountnumber" placeholder-style="color:#ababab" placeholder="请设置账号6-18位数字或字母组合" class="receive-goods" maxlength="18" minlength="6" value="{{account}}" disabled="true" bindtap="no_check"></input>
+    <input wx:else type="text"  name="accountnumber" placeholder-style="color:#ababab" placeholder="请设置账号6-18位数字或字母组合" class="receive-goods" maxlength="18" minlength="6"></input>
+  </view>
+  <view class="adress-person">
+    <text>登录密码</text>
+    <input type="text"  name="password" placeholder-style="color:#ababab" placeholder="请设置密码 6-18位数字或字母组合" class="receive-goods" maxlength="18" minlength="6" value="{{password}}"></input>
+  </view>
+  <view class="adress-person">
+    <text>员工姓名</text>
+    <input type="text"  name="staffname" placeholder-style="color:#ababab" placeholder="请输入姓名" class="receive-goods" maxlength="10" minlength="2" value="{{truename}}"></input>
+  </view>
+  <view class="adress-person">
+    <text>联系电话</text>
+    <input type="text"  name="mobile" placeholder-style="color:#ababab" placeholder="请输入联系电话" class="receive-goods" maxlength="11"  value="{{mobile}}"></input>
+  </view>
+  <view class="address-mr">
+    <view>账号状态</view>
+    <view class="address-switch">
+      <switch style="zoom: 0.65;" checked="{{isMoren}}" bindchange="switch1Change"/>
+    </view>
+  </view>
+  <view wx:if="{{id}}" class="address-del"  bindtap="delStaff" data-id="{{id}}">删除员工信息</view>
+  <view class="shezhi-quit" >
+    <button bindtap="staff_add" formType="submit" class="btn-quit">保存</button>
+  </view>
+</form>

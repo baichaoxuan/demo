@@ -1,0 +1,35 @@
+<scroll-view class="addr-wrap">
+  <view class="none-wrap" wx:if="{{!has_record}}" >
+    <image src="/images/nodata.png" class="none-img"></image>
+    <view class="apply-record">暂无地址</view>
+  </view>
+  <view class="address-item" wx:for="{{list}}" wx:key="index" >
+    <view class="user-wrap" >
+      <view class="address-left" catchtap="activityPage" data-addrid="{{item.id}}">
+        <view class="user-info">
+          <image src="/images/dizhi.png" class="address-dz"></image>
+          <text class="user-name">{{item.truename}}</text>
+          <text class="user-mobile">{{item.mobile}}</text>
+          <view class="addr-icon" data-id="{{item.id}}"style="display:{{item.is_default==1?'block':'none'}}">默认</view>
+        </view>
+        <view class="address-info">{{item.area}} {{item.address}}</view>
+      </view>
+      <view class="address-right">
+        <navigator style="padding:30rpx" open-type="navigate" url="../adress-add/adress-add?id={{item.id}}">编辑</navigator>
+      </view>
+    </view>
+    <!-- <view class="addr-bottom">
+      <view style="display:flex">
+        <image class="addr-icon" data-id="{{item.id}}" bindtap="setDefault" src="/images/radio{{item.is_default==1?'-checked':''}}.png"></image>
+        <view style="color:#000">默认地址</view>
+      </view>
+      <view style="display:flex">
+        <navigator style="margin-right:40rpx" open-type="navigate" url="../adress-add/adress-add?id={{item.id}}">编辑</navigator>
+        <view style="margin-right:30rpx"  bindtap="delAddr" data-id="{{item.id}}">删除</view>
+      </view>
+    </view> -->
+  </view>
+</scroll-view>
+<view class="addr-btn">
+  <button class="add-addr" catchtap="goAdd" >添加新地址</button>
+</view>

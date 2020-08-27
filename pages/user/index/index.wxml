@@ -1,0 +1,46 @@
+<!--pages/user/home/home.wxml-->
+<import src="/tabbar.wxml"/> 
+<template is="tabBar" data="{{tabBar}}"/>
+<view>
+  <view class="index-txt" style="display:{{user_message?'block':'none'}}">{{user_message}}</view>
+  <!-- banner -->
+  <view class="shop-banner">
+    <swiper indicator-dots= 'true' indicator-active-color="#eb4739" 
+      autoplay='true' interval='5000' duration='500' style="height: 322rpx;">
+      <block wx:for="{{bannerList}}" wx:key="index">
+        <swiper-item>
+          <navigator url="{{item.link}}">
+            <image class="banner_img" src="{{item.image?host+item.image:''}}"></image>
+          </navigator>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+    <!-- 商品列表 -->
+  <view>
+    <view class="shop-kind" >
+      <text class="{{now_cid==item.id?'menu-active':'menu-tab'}}" wx:for="{{cates}}" wx:key="id" bindtap="getList" data-cid="{{item.id}}">{{item.name}}</text>
+    </view>
+    <scroll-view class="scroll-wrap">
+      <view class="none-wrap" wx:if="{{no_record}}">
+          <image src="../../images/nodata.png" class="none-img"></image>
+          <view class="apply-record">暂无记录</view>
+      </view>
+
+      <view class="shop-list">
+        <view class="shop-li" wx:for="{{list}}" wx:key="id">
+          <image src="{{item.img?host + item.img:''}}" bindtap="go2info" data-id="{{item.id}}"></image>
+          <view class="shop-name" bindtap="go2info" data-id="{{item.id}}">{{item.name}}</view>
+          <view class="shop-guige">规格：{{item.sku_desc}}</view>
+          <view class="shop-price">￥{{item.retail_price}}</view>
+          <image class="shop-gouwuche" src="/images/gouwucheman1.png" bindtap="add2cart" data-id="{{item.id}}"></image>
+        </view>
+      </view>
+
+    </scroll-view>
+    <view class="already-bottom" wx:if="{{is_has_more==0}}">-- 没有更多了 --</view>
+  </view>
+  <!-- tabbar字标 -->
+  <text class=" {{cart_num!=0?'shop_details_addNum':'shop_details'}}">{{cart_num>99?'99+':cart_num}}</text>
+  <view style="height:100rpx"></view>
+</view>

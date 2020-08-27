@@ -1,0 +1,20 @@
+<view>
+  <view class="balance-tishi">
+    <image src="/images/tishi.png"></image>
+    <text>仅限北京五环内用户充值</text>
+  </view>
+  <view class="balance-topup">
+    <view class="balance-title">充值金额</view>
+    <view class="balance-input">
+      <text class="balance-rbm">￥</text>
+      <input placeholder="请输入充值金额" placeholder-style="font-size: 25.4rpx;color:#c0c0c0;" bindinput='diseaseNameInput' value="{{diseaseName ==0?'':diseaseName}}" bindblur="phoneOnBlur"></input>
+    </view>
+    <view class="current-balance" wx:if="{{is_blur}}">充值后余额 : {{addNum}}</view>
+    <view class="current-balance" wx:else>当前余额 : {{balance?balance:'0.00'}}</view>
+  </view>
+  <view class="balance-foot">
+    <view style="margin-left: 128rpx;">点击确认充值 即表示您已经同意</view>
+    <view class="balance-protocol" bindtap="go_protocol">《充值协议》</view>
+    <button class="balance-affirm"  open-type='getUserInfo' lang="zh_CN" bindgetuserinfo="getUserInfo">确认充值</button>
+  </view>
+</view>

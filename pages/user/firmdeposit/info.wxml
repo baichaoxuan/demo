@@ -1,0 +1,21 @@
+<view>
+  <scroll-view class="scroll-wrap scroll-wrap1">
+    <view class="none-wrap" wx:if="{{no_record}}">
+        <image src="../../images/nodata.png" class="none-img"></image>
+        <view class="apply-record">暂无记录</view>
+    </view>
+    <view class="balance-center">
+        <view class="balance-li" wx:for="{{list}}" wx:key="id">
+            <view style="display:flex">
+                <image src="/images/bill_{{item.mark}}.png"></image>
+                <view style="margin-top: 13rpx;">
+                    <view style="font-size: 25.36rpx;color:#000">{{item.mark_view}}</view>
+                    <view style="font-size: 21.74rpx;color:#a9a9a9">{{item.created}}</view>
+                </view>
+            </view>
+            <view class="amount_{{item.amount>0?'add':'sub'}}">{{item.variate}}</view>
+        </view>
+    </view>
+  </scroll-view>
+  <view class="already-bottom" wx:if="{{is_has_more==0}}">没有更多了~</view>
+</view>

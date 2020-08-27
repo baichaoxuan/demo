@@ -1,0 +1,49 @@
+<!--pages/deposit/deposit.wxml-->
+<page>
+    <view class="orderForm">
+        <view class="shop-kind " >
+            <text class="shop-product {{num==1?'shop-active':''}}" data-num='1'
+             bindtap="getProduct" >已交押金</text>
+             <text class="shop-product {{num==2?'shop-active':''}}"  data-num='2'
+             bindtap="getProduct" >已退押金</text>
+        </view>
+        <scroll-view class="scroll-wrap">
+            <view class="none-wrap" wx:if="{{no_record}}">
+                <image src="../../images/nodata.png" class="none-img"></image>
+                <view class="apply-record">暂无记录</view>
+            </view>
+            <view class="orderForm-list" wx:if="{{num==1}}" >
+                <view class="orderForm-li" wx:for="{{list}}" wx:for-item="listItem" wx:key="index" data-id="{{listItem.id}}" bindtap="viewOrder">
+                    <view class="orderForm-t">
+                        <text>订单号 {{listItem.id}}</text>
+                        <text class="orderForm-state">已交押金</text>
+                    </view>
+                    <view class="shopdetails-img"  wx:for="{{listItem.item}}" wx:key="index">
+                        <image src="{{host+item.img}}" class="shopCar-img"></image>
+                        <view style="margin-left: -340rpx;margin-top: 15rpx;line-height: 45rpx;">
+                            <view class="shop-price">{{item.name}}</view>
+                            <view class="shopCar-guige">规格:18.9L</view>
+                        </view>
+                        <view style="margin-top:10rpx;">
+                            <view class="shop-soldout">￥{{item.unit_price}}</view>
+                            <view class="shopdetails-number">x {{item.num}}</view>
+                        </view>
+                    </view>
+                    <view  class="indexBujiao-sub">
+                        <text class="indexBujiao-add">共计{{listItem.pdt_num}}件</text>
+                        <text class="indexBujiao-addprice">
+                            合计<text style="color:#eb4739; font-size: 32.61rpx;font-weight: bold;">￥{{listItem.price}}</text>
+                        </text>
+                    </view>
+                    <!-- <view style="height:102.3rpx;display:flex;align-items:center;justify-content:flex-end;">
+                        <view bindtap="viewOrder" class="orderForm-look"  data-id="{{listItem.id}}">查看订单</view>
+                    </view> -->
+                </view>
+            </view>
+        </scroll-view>
+        <view class="already-bottom" wx:if="{{is_has_more==0}}">没有更多了~</view>    
+    </view>
+</page>
+
+
+

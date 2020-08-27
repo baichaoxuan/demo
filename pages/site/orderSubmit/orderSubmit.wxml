@@ -1,0 +1,61 @@
+<!--pages/order_submit/order_submit.wxml-->
+<page style="width:100%;overflow-x:hidden">
+  <view class="productDetails">
+    <view class="productDetails-top">
+      <view class="productDetails_nav" bindtap="{{is_delivery==1?'skip_addr':''}}" >
+          <view class="top-address">
+            <image class="top-icon" src="/images/dizhi.png"></image>
+            <text class="top-name"><text style="margin-right: 20rpx;display: inline;">{{addr.truename}}</text> {{addr.mobile}} </text>
+          </view>
+          <view class="top-info">{{addr.area}} {{addr.address}}</view>
+          <image class="top-arrow" src="/images/address.png"></image>
+      </view>
+    </view>
+    <view class="productDetails-center">
+      <view class="shopdetails-img" wx:for="{{list}}" wx:key="index">
+          <view style="line-height: 45rpx;display:flex">
+              <image class="shopCar-img" src="{{host}}{{item.img}}"></image>
+              <view>
+                <view class="shop-price">{{item.name}}</view>
+                <view class="shopCar-guige">规格:{{item.sku_desc}}</view>
+              </view>
+          </view>
+          <view >
+              <view class="shop-soldout">￥{{item.cost_price}}</view>
+              <view class="shopdetails-number">x {{item.num}}</view>
+          </view>
+      </view>
+      
+      <view  class="indexBujiao-sub">
+        <text class="indexBujiao-add">共计{{pdt_num}}件</text>
+        <text class="indexBujiao-addprice">
+            商品总价<text style="color:#eb4739; font-size: 32.61rpx;font-weight: bold;">￥{{total_amount}}</text>
+        </text>
+      </view>
+    </view>
+    <view class="productDetails-way"> 
+      <view style="font-size: 25.36rpx;color: #000000;">
+        <text >配送方式</text>
+        <text hidden="{{is_delivery==0 ? true : false}}" style="float:right">免费配送</text>
+        <text hidden="{{is_delivery==1 ? true : false}}" style="float:right">自提</text>
+      </view>
+      <text hidden="{{is_delivery==1 ? true : false}}" style="color: #c3c3c3;font-size: 25.36rpx;">根据平台规定，当购买量满足{{min_delivery_num}}桶可免费配送</text>
+    </view>
+    <view class="productDetails-yue" bindtap="useBalance">
+      <view>可用余额{{balance}}元，使用余额支付</view>
+      <image src="/images/radio{{is_balance?'-checked':''}}.png"></image>
+    </view>
+    <view class="productDetails-bottom">
+      <view  class="indexBujiao-sub">
+        <text class="indexBujiao-add">共计{{pdt_num}}件</text>
+        <text class="indexBujiao-addprice">
+            合计<text style="color:#eb4739; font-size: 32.61rpx;font-weight: bold;">￥{{total_amount}}</text>
+        </text>
+        <!-- 支付前需绑定微信 -->
+        <button class="shop-buy" wx:if="{{!is_bindwx}}" open-type='getUserInfo' lang="zh_CN" bindgetuserinfo="getUserInfo">去支付</button>
+        <button class="shop-buy" wx:if="{{is_bindwx}}" loading="{{is_submiting}}" bindtap="submitOrder">去支付</button>
+      </view>
+    </view>
+    <view style="width:100%;height:120rpx"></view>
+  </view>
+</page>

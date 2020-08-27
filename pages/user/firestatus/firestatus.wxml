@@ -1,0 +1,23 @@
+<view>
+  <view class="balanceCheck-top">
+    <image wx:if="{{audited}}" src="/images/pic.png"></image>
+    <image wx:if="{{!audited & audit_status == -1}}" src="/images/shibai.png"></image>
+    <image wx:if="{{!audited & audit_status == 0}}" src="/images/shenhe.png"></image>
+    <view class="balanceCheck-title" wx:if="{{!audited & audit_status == 0}}" >企业认证审核中</view>
+    <view class="balanceCheck-predict" wx:if="{{!audited & audit_status == 0}}">请耐心等待，工作人员将在24小时内完成企业信息审核，审核通过后我们将以电话的形式告知与您，请注意接听</view>
+    <view class="balanceCheck-title" wx:if="{{audited}}">企业认证成功</view>
+    <view class="balanceCheck-predict" wx:if="{{audited}}">企业认证通过时间 {{audited}}</view>
+    <view class="balanceCheck-title" wx:if="{{!audited & audit_status == -1}}">企业认证失败</view>
+    <view class="balanceCheck-predict" wx:if="{{!audited & audit_status == -1}}">{{reason}}</view>
+    <view class="balanceCheck-btn" wx:if="{{!audited & audit_status == -1}}">
+      <view class="balanceCheck-list" bindtap="go_balancelist">修改企业信息</view>
+      <view class="balanceCheck-yue" bindtap="del_firm">重新申请</view>
+    </view>
+    <view class="balanceCheck-btn" wx:if="{{audited}}">
+      <view class="balanceCheck-yue" bindtap="go_login">企业登录</view>
+    </view>
+    <view class="balanceCheck-btn" >
+      <view class="balanceCheck-yue" bindtap="go_balance" wx:if="{{!audited & audit_status == 0}}">返回</view>
+    </view>
+  </view>
+</view>

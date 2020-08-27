@@ -1,0 +1,111 @@
+<!-- 用户订单详情 -->
+<view class="viewOrder">
+     <view class="indexDetails-content">
+        <view class="indexDetails-head">
+            {{info.view_status}}
+        </view>
+        <view class="viewOrder-address">
+          <view class="top-address">
+            <image class="index-image" src="/images/shijian.png"></image>
+            <text class="index-time">{{info.forward}}</text>
+            <image class="top-icon" src="/images/peoplefill.png"></image>
+            <text class="top-name">{{info.truename}}</text> 
+          </view>
+          <image class="index-image" src="/images/dizhi.png"></image>
+          <text class="top-info">{{info.area_addr}}</text>
+          <image class="top-arrow" src="/images/address.png"></image>
+        </view>
+    </view>
+    <view style="background-color:#fff;margin-top:16rpx;padding:11rpx 22rpx;">
+        <view class="shopdetails-img"  wx:for="{{info.items}}" wx:key="product_id" wx:for-item="product">
+            <view style="display:flex" >
+                <image class="shopCar-img" src="{{host+product.img}}"></image>
+                <view style="display: inline-block;margin-left: 20rpx;line-height: 21px;margin-top:13rpx">
+                    <view class="shop-price">{{product.name}}</view>
+                    <view class="shopCar-guige">规格:{{product.sku_desc}}</view>
+                </view>
+            </view>
+            <view style="margin-top:10rpx;">
+                <view class="shop-soldout">￥{{product.unit_price}}</view>
+                <view class="shopdetails-number">x {{product.num}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="indexBujiao-sub">
+        <text class="indexBujiao-add">共计{{info.pdt_num}}件</text>
+        <text class="indexBujiao-addprice">
+            合计
+        </text>
+        <text style="color:#eb4739; font-size: 32.61rpx;font-weight: bold;line-height: 1rpx;">
+            ￥{{info.pdt_price}}
+        </text>
+    </view>
+    <view style="background-color:#fff;padding: 30rpx 22rpx;display:{{info.view_status=='已完成' & info.bucket_num != 0? 'block':'none'}}">
+        <view style="font-size: 25.4rpx;color:#000;margin-left:30rpx">回桶数量 {{info.bucket_num?info.bucket_num:''}}</view>
+        <view class="shopdetails-img"  wx:for="{{bucket_item}}" wx:key="index" >
+            <view style="display:flex" >
+                <image class="shopCar-img" src="{{item.img?host+item.img:''}}"></image>
+                <view style="display: inline-block;margin-left: 20rpx;line-height: 21px;margin-top:13rpx">
+                    <view class="shop-price">{{item.name}}</view>
+                    <view class="shopCar-guige">规格:{{item.sku_desc}}</view>
+                </view>
+            </view>
+            <view style="margin-top:10rpx;">
+                <view class="shop-soldout">x {{item.num}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="indexDetails-bottom">
+        <view>订单详情</view>
+        <view wx:if="{{info.mark}}" style="display:flex;">
+            <view style="font-size: 21.74rpx;color: #6a6a6a;">订单备注 </view>
+            <view style="font-size: 21.74rpx;color: #6a6a6a;margin-left:10rpx;width: 85%;"> {{info.mark}}</view>
+        </view>
+        <view>
+            <text>订单编号 </text>
+            <text>{{info.id}}</text>
+            <text class="indexDetails-copy" bindtap="copy">复制</text>
+        </view>
+        <view wx:if="{{info.is_designating ==0}}">
+            <text>指派员工 </text>
+            <text>{{info.staff_name}}</text>
+        </view>
+        <view>
+            <text>下单时间 </text>
+            <text>{{info.created}}</text>
+        </view>
+        <view wx:if="{{info.payed}}">
+            <text>付款时间 </text>
+            <text>{{info.payed}}</text>
+        </view>
+        <view wx:if="{{info.shippered}}">
+            <text>配送时间 </text>
+            <text>{{info.shippered}}</text>
+        </view>
+        <view wx:if="{{info.bucketbacked}}">
+            <text>回桶时间 </text>
+            <text>{{info.bucketbacked}}</text>
+        </view>
+        <view wx:if="{{info.received}}">
+            <text>完成时间 </text>
+            <text>{{info.received}}</text>
+        </view>
+    </view>
+
+    <view class="shop-footer" wx:if="{{info.now_status =='to_assign'}}">
+        <text class="shop-cancel" data-id="{{info.id}}" bindtap="refuse" data-accept="-1">拒绝订单</text>
+        <text class="shop-buy" data-id="{{info.id}}" bindtap="accept" data-accept="1">接单</text>
+    </view>
+    <view class="shop-footer" wx:if="{{info.now_status =='dispatching'}}">
+        <text class="shop-call" data-id="{{info.id}}" bindtap="call_up" style="171.26rpx">联系客户</text>
+        <view class="shop-buy" wx:if="{{info.is_designating ==1}}"  style="171.26rpx">
+            <picker bindchange="bindPickerChange" mode="selector"  value="0" range="{{staff}}" range-key = "truename" data-orderId="{{item.id}}">
+                <view class="picker">
+                    指派
+                </view>
+            </picker>
+        </view>
+        <view class="shop-buy" wx:if="{{info.delivery_status==1 || isSongda}}" bindtap="go_bucket" data-id="{{info.id}}" style="171.26rpx">回桶</view>
+        <view class="shop-buy" wx:if="{{info.delivery_status==0}}"bindtap="go_delivery" data-id="{{info.id}}" style="171.26rpx">送达</view>  
+    </view>
+</view>

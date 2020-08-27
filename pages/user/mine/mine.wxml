@@ -1,0 +1,143 @@
+<import src="/tabbar.wxml"/> 
+<template is="tabBar" data="{{tabBar}}"/>
+<view class="user-mine" wx:if="{{is_user}}">
+    <view class="index-header">
+        <view class="index-shuizhan">
+            <text >{{userInfo.nickname?userInfo.nickname:'请登录'}}</text>
+        </view>
+        <image class="index-background" src="/images/2222.png" ></image>
+        <image  class="index-login" src="{{userInfo.avatar?userInfo.avatar : '/images/tx2.png'}}" mode="cover"></image>
+        <button class="add-info" open-type='getUserInfo' lang="zh_CN" bindgetuserinfo="getUserInfo"></button>
+        <!-- 切换用户 -->
+        <view bindtap='tologs' size='mini' class="button">切换用户</view>
+        <view class="index-line"></view>
+        <view class="index-content">
+            <view>
+                <view>￥{{userInfo.balance?userInfo.balance:'0.00'}}</view>
+                <navigator url="../balance/balance" hover-class="none">我的余额</navigator>
+            </view>
+            <view>
+                <view>￥{{userInfo.deposit_amount?userInfo.deposit_amount:'0.00'}}</view>
+                <navigator url="../embody/embody" hover-class="none">我的押金</navigator>
+            </view>
+        </view>
+    </view>
+    <!-- 订单 -->
+    <view class="index-bottom">
+        <view bindtap="skipOrder">
+            <view class="index-bLine"> </view>
+            <text>我的订单</text>
+            <image src="/images/jinru-2.png" style="float:right;width:22rpx;height:26rpx;margin-top: 6rpx;margin-left:10rpx"></image>
+            <text style="float:right;color:#aaa">查看全部订单</text>
+        </view>
+        <view class="index-list">
+            <navigator url="../order/order?gstatus=1" hover-class="none" style="position:relative">
+                <image src="/images/daifukuan.png" ></image>
+                <view class="index-shop">待付款</view>  
+                <text class="{{unpay_num!=0?'shop_details_add ':'shop_details'}}" style="left:24rpx;top:-16rpx;">{{unpay_num>99?'99+':unpay_num}}</text> 
+            </navigator>
+            <navigator url="../order/order?gstatus=2"  hover-class="none" style="position:relative">
+               <image src="/images/fahuotixing.png" ></image>
+                <view>待发货</view>   
+                <text class="{{unshipper_num!=0?'shop_details_add ':'shop_details'}}" style="left: 28rpx;top: -20rpx;">{{unshipper_num>99?'99+':unshipper_num}}</text>
+            </navigator>
+            <navigator url="../order/order?gstatus=3"  hover-class="none" style="position:relative">
+               <image src="/images/daishouhuo.png" ></image>
+                <view>待收货</view> 
+                <text class="{{receive_num!=0?'shop_details_add ':'shop_details'}}" style="left: 28rpx;top: -20rpx;">{{receive_num>99?'99+':receive_num}}</text>  
+            </navigator>
+        </view>
+    </view>
+    <!-- 收货地址 -->
+    <navigator class="mine_adress" url="../adress/adress">
+        <view>我的收货地址</view>
+        <image src="/images/jinru.png" style="float:right;width:14rpx;height:22rpx;margin-top: 34rpx;"></image>
+    </navigator>
+    <!-- 我的企业 -->
+    <view class="mine_adress" bindtap="go_firmLogin">
+        <view>我的企业</view>
+        <image src="/images/jinru.png" style="float:right;width:14rpx;height:22rpx;margin-top: 34rpx;"></image>
+    </view>
+    <!-- tabbar字标 -->
+    <text class="{{cart_num!=0?'shop_details_addNum ':'shop_details'}}">{{cart_num>99?'99+':cart_num}}</text>
+</view>
+<view class="firm-mine" wx:if="{{!is_user}}">
+    <view class="index-header">
+        <view class="index-shuizhan">
+            <text >{{userInfo.nickname?userInfo.company:'请登录'}}</text>
+        </view>
+        <image class="index-background" src="/images/2222.png" ></image>
+        <image  class="index-login" src="{{userInfo.avatar?userInfo.avatar : '/images/tx2.png'}}" mode="cover"></image>
+        <button class="add-info" open-type='getUserInfo' lang="zh_CN" bindgetuserinfo="getUserInfo"></button>
+        <!-- 切换用户 -->
+        <view class="index-line"></view>
+        <view class="index-content">
+            <view>
+                <view>￥{{userInfo.balance?userInfo.balance:'0.00'}}</view>
+                <navigator url="../balance/balance" hover-class="none">我的余额</navigator>
+            </view>
+            <view>
+                <view style="display:flex;justify-content:center">{{userInfo.deposit_num?userInfo.deposit_num:'0'}}</view>
+                <navigator url="../embody/embody" hover-class="none">我的押桶</navigator>
+            </view>
+        </view>
+    </view>
+    <!-- 免押金额度 -->
+    <view class="index-bottom" bindtap="go_firmdeposit"  wx:if="{{userInfo.is_open_freeya == 1}}" style="position:relative">
+        <view bindtap="skipOrder">
+            <view class="index-bLine"> </view>
+            <text>免押金额度</text>
+            <image src="/images/jinru.png" style="float:right;width:14rpx;height:22rpx;margin-top: 6rpx;margin-left:10rpx"></image>
+        </view>
+        <view >
+            <view class="index-line" style="top:100rpx;"></view>
+            <view class="index-content1">
+                <view>
+                    <view>￥{{userInfo.freeya_amount?userInfo.freeya_amount:'0.00'}}</view>
+                    <navigator  hover-class="none" style="width:126rpx;color:#ababab;border:0;">免押金额度</navigator>
+                </view>
+                <view>
+                    <view>￥{{userInfo.freeya_canuse_amount?userInfo.freeya_canuse_amount	:'0.00'}}</view>
+                    <navigator  hover-class="none" style="color:#ababab;border:0;">可用额度</navigator>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 订单 -->
+    <view class="index-bottom" style="margin-top:{{userInfo.is_open_freeya == 0?'122rpx':'16rpx'}}">
+        <view bindtap="skipOrder">
+            <view class="index-bLine"> </view>
+            <text>我的订单</text>
+            <image src="/images/jinru-2.png" style="float:right;width:22rpx;height:26rpx;margin-top: 6rpx;margin-left:10rpx"></image>
+            <text style="float:right;color:#aaa">查看全部订单</text>
+        </view>
+        <view class="index-list">
+            <navigator url="../order/order?gstatus=1" hover-class="none" style="position:relative">
+                <image src="/images/daifukuan.png" ></image>
+                <view class="index-shop">待付款</view>  
+                <text class="{{unpay_num!=0?'shop_details_add ':'shop_details'}}" style="left:24rpx;top:-16rpx;">{{unpay_num>99?'99+':unpay_num}}</text> 
+            </navigator>
+            <navigator url="../order/order?gstatus=2"  hover-class="none" style="position:relative">
+               <image src="/images/fahuotixing.png" ></image>
+                <view>待发货</view>   
+                <text class="{{unshipper_num!=0?'shop_details_add ':'shop_details'}}" style="left: 28rpx;top: -20rpx;">{{unshipper_num>99?'99+':unshipper_num}}</text>
+            </navigator>
+            <navigator url="../order/order?gstatus=3"  hover-class="none" style="position:relative">
+               <image src="/images/daishouhuo.png" ></image>
+                <view>待收货</view> 
+                <text class="{{receive_num!=0?'shop_details_add ':'shop_details'}}" style="left: 28rpx;top: -20rpx;">{{receive_num>99?'99+':receive_num}}</text>  
+            </navigator>
+        </view>
+    </view>
+    <!-- 收货地址 -->
+    <navigator class="mine_adress" url="../adress/adress">
+        <view>我的收货地址</view>
+        <image src="/images/jinru.png" style="float:right;width:14rpx;height:22rpx;margin-top: 34rpx;"></image>
+    </navigator>
+    <view class="mine_adress" bindtap="go_user" style="display:flex;justify-content:center">
+        <view>退出企业</view>
+    </view>
+    <!-- tabbar字标 -->
+    <text class="{{cart_num!=0?'shop_details_addNum ':'shop_details'}}">{{cart_num>99?'99+':cart_num}}</text>
+</view>
+<view style="width:100%;height:200rpx"></view>

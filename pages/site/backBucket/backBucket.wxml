@@ -1,0 +1,40 @@
+<!--pages/site/backBucket/backBucket.wxml-->
+<page>
+  <view class="backBucket">
+    <view class="backBucket-top">
+      <image src="/images/2222.png"></image>
+      <view class="backBucket-center">
+        <view style="position: absolute;top: 29rpx;left: 26rpx;" bindtap="showZhezhao">
+          <text>代押桶</text>
+          <image class="bucket-wenhao"  src="/images/wenhao.png"></image>
+        </view>
+        <view style="position: absolute;right:27.2rpx;top: 29rpx;"> {{bucket_deduct_num}}桶</view>
+      </view>
+    </view>
+    <scroll-view class="scroll-wrap">
+      <view class="none-wrap" wx:if="{{no_record}}">
+          <image src="../../images/nodata.png" class="none-img"></image>
+          <view class="apply-record">暂无记录</view>
+      </view>
+      <view class="balance-center">
+          <view class="balance-li" wx:for="{{list}}" wx:key="index">
+              <view style="display:flex">
+                  <image src="/images/1.png"></image>
+                  <view style="margin-top: 13rpx;">
+                      <view style="font-size: 25.36rpx;color:#000">{{item.marks}}</view>
+                      <view style="font-size: 21.74rpx;color:#a9a9a9">{{item.created}}</view>
+                  </view>
+              </view>
+              <view class="amount_{{item.amount>0?'add':'sub'}}">{{item.amount}}</view>
+          </view>
+      </view>
+    </scroll-view>
+    <view class="already-bottom" wx:if="{{is_has_more==0}}">没有更多了~</view>
+    <view class="bucket_zhezhao" wx:if="{{isShowZhezhao}}">
+      <view class="bucket_content">
+        <view style="font-size: 27rpx;margin-top: 36rpx;">可抵扣回桶桶数可用于进货订水时直接抵扣押金</view>
+        <view class="bucket_btn" bindtap="hidZhezhao">知道了</view>
+      </view>
+    </view>
+  </view>
+</page>

@@ -1,0 +1,32 @@
+<page>
+    <view class="balance">
+        <view class="balance-top ">
+            <image src="/images/2222.png"></image>
+            <view class="balance-yue" bindtap="showZhezhao">
+                可用额度
+                <image src="/images/wenhao.png"></image>
+            </view>
+            <view class="balance-money ">{{freeya_canuse_amount}}</view>
+            <view class="freeya">
+                <view>已用额度：{{freeya_use_amount}}</view>
+                <view>免押金总额度：{{freeya_amount}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="balance-record" style="margin-top:{{activity?'404rpx':'330rpx'}}" bindtap="go_record">
+        <view>免押金额度明细</view>
+        <image src="/images/jinru.png"></image>
+    </view>
+    <view class="bucket_zhezhao" wx:if="{{isShowZhezhao}}">
+      <view class="bucket_content">
+        <view style="text-align: center;">什么是免押金？ </view>
+        <view style="font-size: 27rpx;margin-top:15rpx;">
+            免押金是专门为企业用户打造的、降低企业资金成本，释放现金流动性的专属服务；
+        </view>
+        <view style="font-size: 27rpx;">
+            平台将根据您提供的企业信息，为您授予一定的“免押金额度”，免押金额度在订水时可用于抵用水桶的押金
+        </view>
+        <view class="bucket_btn" bindtap="hidZhezhao">知道了</view>
+      </view>
+    </view>
+</page>

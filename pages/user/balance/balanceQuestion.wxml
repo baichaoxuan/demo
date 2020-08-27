@@ -1,0 +1,56 @@
+<!--pages/user/balance/balanceQuestion.wxml-->
+<view>
+  <view class="ye_issue">
+    <view class="issue-item" bindtap="show_content" data-value='1'>
+      <view>什么是余额？</view>
+      <image src="/images/jinru.png" style=" transform:{{index == 1& is_show?'rotate(-90deg)':'rotate(90deg)'}}"></image>
+    </view>
+    <view class="issue-content" style="display:{{index == 1 & is_show?'block':'none'}}">余额是捷成送水为您提供的用于在捷成送水小程序进行消费的虚拟金额，只可用于支付订水订单的相关费用；</view>
+  </view>
+  <view class="ye_issue">
+    <view class="issue-item" bindtap="show_content" data-value='2'>
+      <view>如何充值余额？</view>
+      <image src="/images/jinru.png" style=" transform:{{index == 2& is_show?'rotate(-90deg)':'rotate(90deg)'}}"></image>
+    </view>
+    <view class="issue-content" style="display:{{index == 2& is_show?'block':'none'}}">进入 [我的余额]，点击 [充值] ，选择您想要充值的金额，点击 [立即充值] 即可完成充值；</view>
+  </view>
+  <view class="ye_issue">
+    <view class="issue-item" bindtap="show_content"  data-value='3' >
+      <view>是否有充值限制？</view>
+      <image src="/images/jinru.png" style=" transform:{{index == 3& is_show?'rotate(-90deg)':'rotate(90deg)'}}"></image>
+    </view>
+    <view class="issue-content" style="display:{{index == 3& is_show?'block':'none'}}">
+      <view>（1）.目前服务范围仅限北京5环内，余额仅限北京地区充值/支付使用。</view>
+      <view>（2）.活动期间，充值次数请以活动规则为准。</view>
+      <view>（3）.非活动期间，余额充值不受限制。</view>
+    </view>
+  </view>
+  <view class="ye_issue">
+    <view class="issue-item" bindtap="show_content" data-value='4'>
+      <view>充值后是否支持退款？</view>
+      <image src="/images/jinru.png" style=" transform:{{index == 4& is_show?'rotate(-90deg)':'rotate(90deg)'}}"></image>
+    </view>
+    <view class="issue-content" style="display:{{index == 4& is_show?'block':'none'}}">充值成功，余额充值即确认完成。平台不提供退还或逆向兑换服务。</view>
+  </view>
+  <view class="ye_issue">
+    <view class="issue-item" bindtap="show_content" data-value='5'>
+      <view>余额有效期限？</view>
+      <image src="/images/jinru.png" style=" transform:{{index == 5& is_show?'rotate(-90deg)':'rotate(90deg)'}}"></image>
+    </view>
+    <view class="issue-content" style="display:{{index == 5 & is_show?'block':'none'}}">实际余额及充值赠送余额自充值日起至用完即止。</view>
+  </view>
+  <view class="ye_issue">
+    <view class="issue-item" bindtap="show_content" data-value='6'>
+      <view>余额使用规则</view>
+      <image src="/images/jinru.png" style=" transform:{{index == 6& is_show?'rotate(-90deg)':'rotate(90deg)'}}"></image>
+    </view>
+    <view class="issue-content" style="display:{{index == 6 & is_show?'block':'none'}}">余额只可用于捷成送水小程序内产生的订水订单支付相关费用。</view>
+  </view>
+  <view class="ye_issue">
+    <view class="issue-item" bindtap="show_content" data-value='7'>
+      <view>是否支持提现？</view>
+      <image src="/images/jinru.png" style=" transform:{{index == 7& is_show?'rotate(-90deg)':'rotate(90deg)'}}"></image>
+    </view>
+    <view class="issue-content" style="display:{{index == 7& is_show?'block':'none'}}">账户余额不支持提现、转移、转赠、退款，仅限捷成送水小程序支付使用。</view>
+  </view>
+</view>

@@ -1,0 +1,51 @@
+/* pages/user/balance/balaceRecord.wxss */
+.none-wrap{
+  width: 100%;
+  text-align: center;
+  margin-top: 100rpx;
+}
+.none-img{
+  width:328rpx;
+  height: 232rpx;
+  margin: 0 auto; 
+}
+.apply-record{
+  color: #8c8c8c;
+  text-align: center;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+}
+.already-bottom{
+  height: 100rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #b0b0b0;
+  line-height: 100rpx;
+}
+.balance-li{
+  width: 693.84rpx;
+  height: 132.25rpx;
+  background-color: #ffffff;
+  border-radius: 18.12rpx;
+  margin: 0 28rpx ;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:0 28rpx;
+  box-sizing: border-box;
+  box-shadow: 0rpx 4.53rpx 11.05rpx 0.72rpx 
+      rgba(223, 223, 223, 0.41);
+  margin-top: 21.7rpx;
+  margin-bottom: 21.7rpx;
+}
+.balance-li image{
+  width: 74.28rpx;
+  height: 74.28rpx;
+  margin-right: 20rpx;
+}
+.amount_add{
+  height: 27.17rpx;color: #ff7200;
+}
+.amount_sub{
+  height: 27.17rpx;color: #000;
+}

@@ -1,0 +1,126 @@
+/* pages/deposit/deposit.wxss */
+.shop-kind{
+  position: fixed;
+  top: 0;
+  z-index: 9;
+  width: 100%;
+  height: 91rpx;
+  line-height: 91rpx;
+  background-color: #ffffff;
+  box-shadow: 0rpx 5rpx 14rpx 0rpx 
+      rgba(228, 228, 228, 0.69);
+  border-radius: 9rpx 9rpx 0rpx 0rpx;
+  display: flex;
+  justify-content: space-around;
+}
+button{
+  width: 110rpx;
+  position: static;
+  border: 0;
+  background-color: #ffffff;
+  padding: 0;
+  margin: auto 0;
+}
+.shop-product{
+  font-size: 27.2rpx;
+  color: #000000;
+}
+.shop-active{
+color: #4c92f7;
+border-bottom: 10rpx solid #4c92f7;
+}
+.orderForm-t{
+  height: 80.6rpx;
+  font-size: 25.7rpx;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  line-height: 45rpx;
+  padding: 0 29rpx;
+}
+.orderForm-list{
+  border-radius: 18.12rpx;
+}
+.orderForm-li{
+  margin-top: 25rpx;
+  background-color: #ffffff;
+  border-radius: 18rpx;
+}
+.orderForm-t .orderForm-state{
+  color:#80d115;
+}
+.shopdetails-img{
+width: 666.6rpx;
+height: 142.21rpx;
+background-color: #f6f6f6;
+margin: 11rpx 22rpx;
+box-sizing: border-box;
+display: flex;
+justify-content: space-between;
+padding: 16.3rpx 14.5rpx;
+}
+.shopCar-img{
+width: 110.51rpx;
+height: 109.6rpx;
+background-color: #4c92f7;
+}
+.shop-price{
+font-size: 25rpx;
+line-height: 45rpx;
+}
+.shopCar-guige{
+font-size: 21.74rpx;
+color: #a4a4a4;
+}
+.shop-soldout{
+font-size: 24rpx;
+line-height: 45rpx;
+color: #4e4e4e;
+}
+.shopdetails-number{
+font-size: 22rpx;
+float: right;
+}
+.indexBujiao-sub{
+  display: flex;
+  justify-content: flex-end;
+  align-items:center;
+  background-color: #ffffff;
+  padding: 0 30rpx;
+  border-radius: 18rpx;
+}
+.indexBujiao-add{
+  font-size: 19.93rpx;
+  color: #c3c3c3;
+  margin-right: 20rpx;
+}
+.indexBujiao-addprice{
+  font-size: 25.36rpx;
+  color: #000000;
+  padding-bottom: 19px;
+  box-sizing: border-box;
+}
+.orderForm-look{
+  width: 161.23rpx;
+	height: 48.01rpx;
+  line-height: 48rpx;
+  text-align: center;
+  border-radius: 23.88rpx;
+	border: solid 1.81rpx #4c92f7;
+  color: #4c92f7;
+  margin-right: 25rpx;
+  font-size: 25rpx;
+
+}
+.already-bottom{
+  height: 100rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #b0b0b0;
+  line-height: 100rpx;
+}
+.scroll-wrap{
+  padding: 0 17rpx;
+  box-sizing: border-box;
+  margin-top: 85rpx;
+}

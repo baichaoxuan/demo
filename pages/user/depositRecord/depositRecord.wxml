@@ -1,0 +1,51 @@
+<!--pages/site/depositRecord/depositRecord.wxml-->
+<page>
+  <view>
+    <scroll-view class="scroll-wrap">
+      <view class="none-wrap" wx:if="{{no_record}}">
+          <image src="/images/nodata.png" class="none-img"></image>
+          <view class="apply-record">暂无记录</view>
+      </view>
+      <view class="orderForm-item " wx:for="{{list}}" wx:key="index">
+          <view class="orderForm-li" >
+              <view class="orderForm-t">
+                  <text style="letter-spacing: 2rpx;">服务单：{{item.id}}</text>
+                  <text class="orderForm-state {{item.gstatus==3?'status4':''}}" style="color:{{item.gstatus_name == '已取消'?'#a4a4a4':''}}">{{item.gstatus_name}}</text>
+              </view>
+              <navigator url="/pages/site/depositRecord/depositDetails?id={{item.id}}" wx:for="{{item.item}}" wx:key="{{item.brand_id}}" wx:for-item="items">
+                  <view class="shopdetails-img" >
+                      <view style="display:flex">
+                          <image class="shopCar-img" src="{{host+items.img}}"></image>
+                          <view style="display: inline-block;margin-left: 20rpx;line-height:46rpx;margin-top: 8rpx;">
+                              <view class="shop-price">{{items.name}}</view>
+                          </view>
+                      </view>
+                      <view style="margin-top:8rpx;">
+                          <view class="shop-soldout">￥{{items.unit_price}}</view>
+                          <view class="shopdetails-number">x {{items.num}}</view>
+                      </view>
+                  </view>
+              </navigator>
+              <view class="depositRecord-wait" style="display:{{item.gstatus == 1?'block':'none'}}">申请退押金已提交，等待平台回收空桶</view>
+              <view class="depositRecord-wait" style="display:{{item.gstatus == 2?'block':'none'}}">押金桶已回收，等待平台退款审核</view>
+              <view class="depositRecord-wait" style="display:{{item.gstatus == 3?'block':'none'}}">平台审核通过，申请退回的押金已退回至您的余额</view>
+              <view class="depositRecord-wait" style="display:{{item.gstatus == 0?'block':'none'}}">服务已取消，如有需求可在我的押金重新申请</view>
+              <view class="indexBujiao-sub">
+                  <text class="indexBujiao-add">共计{{item.num}}件</text>
+                  <text class="indexBujiao-addprice">
+                      实付款
+                  </text>
+                  <text style="color:#eb4739; font-size: 32.61rpx;font-weight: bold;line-height: 1rpx;">
+                      ￥{{item.price}}
+                  </text>
+              </view>
+              <view style="display:flex;align-items:center;justify-content:flex-end;padding: 28rpx 0" wx:if="{{item.gstatus == 1}}">
+                  <block >
+                      <text class="orderForm-cancel" data-id="{{item.id}}" data-index="{{index}}" bindtap="cancelOrder">取消申请</text>
+                  </block>
+              </view>
+          </view>
+        </view>
+    </scroll-view>
+  </view>
+</page>

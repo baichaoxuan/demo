@@ -1,0 +1,53 @@
+/* pages/adress/adress.wxss */
+.adress-person,.adress-phone,.adress-adress{
+  display: inline-block;
+  width: 100%;
+  height: 91rpx;
+  line-height: 91rpx;
+  background-color: #ffffff;
+  margin-top: 15rpx;
+  color: #000000;
+  font-size: 25rpx;
+  padding: 0 34rpx;
+  box-sizing: border-box;
+}
+.adress-person view:last-child,.adress-phone view:last-child{
+  font-size: 25rpx;
+  color: #c3c3c3;
+  padding:0 0 ;
+  padding-top: 17rpx;
+  float:right;
+}
+.receive-goods{
+  float: right;
+  width: 500rpx;
+  height: 93rpx;
+  line-height: 93rpx;
+  text-align: right;
+  color:#ababab;
+}
+.adress-input{
+  width: 100%;
+  height: 68rpx;
+  background-color: #ffffff;
+  padding: 0 34rpx;
+  box-sizing: border-box;
+  font-size: 27rpx;
+  color: #c3c3c3;
+}
+.picker-area {
+  float: right;
+}
+  
+.adress-submit{
+  position: absolute;
+  left: 50%;
+  bottom: 24rpx;
+  margin-left: -348rpx;
+  width: 696rpx;
+	height: 72rpx;
+	background-color: #4c92f7;
+  border-radius: 36rpx;
+  font-size: 27rpx;
+	color: #ffffff;
+}

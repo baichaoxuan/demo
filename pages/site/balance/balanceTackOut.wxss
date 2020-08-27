@@ -1,0 +1,143 @@
+
+.balance-topup{
+  width: 100%;
+  padding: 0 28.1rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+.balance-title{
+  font-size: 25.4rpx;
+  line-height:106.4rpx;
+}
+.balance-rbm{
+  font-size: 49.3rpx;
+  line-height: 56rpx;
+}
+.balance-input{
+  display: flex;
+  align-items:flex-end;
+  border-bottom: 2rpx solid #eee;
+  padding: 10rpx 0;
+  justify-content: space-between;
+}
+.current-balance{
+  font-size: 23.6rpx;
+  line-height: 71.4rpx;
+  color: #c0c0c0;
+}
+.balance-foot view{
+  display: inline-block;
+  font-size: 23.6rpx;
+  color: #a4a4a4;
+}
+.balance-foot .balance-protocol{
+  display: inline-block;
+  font-size: 23.6rpx;
+  color: #32a2f0;
+}
+.balance-foot .balance-affirm{
+  width: 695.7rpx;
+  height: 72.5rpx;
+  line-height: 72.5rpx;
+  text-align: center;
+	background-color: #4c92f7;
+  border-radius: 36.2rpx;
+  color: #fff;
+  margin-top: 25rpx;
+  font-size: 27.2rpx;
+}
+.view-list{
+  position: absolute;
+  bottom: 60.7rpx;
+  text-align: center;
+  font-size: 25.4rpx;
+  color: #32a2f0;
+  left: 50%;
+  margin-left: -73rpx;
+}
+.balance-wechat{
+  width: 100%;
+  height: 92.4rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 25.4rpx;
+  margin-top: 14rpx;
+  background-color: #fff;
+  padding: 0 28.1rpx;
+  box-sizing: border-box;
+}
+.bucket_btn{
+  width: 540rpx;
+  height: 72.5rpx;
+  line-height: 72.5rpx;
+  color: #fff;
+  font-size: 27rpx;
+  text-align: center;
+  background-image: linear-gradient(-27deg, #ec6d31 0%, #eb4739 100%), linear-gradient( #4c92f7, #4c92f7);
+  background-blend-mode: normal, normal;
+  border-radius: 36.2rpx;
+  margin-left: 11rpx;
+  margin-top: 35rpx;
+}
+.bucket_zhezhao{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 9;
+}
+.bucket_content{
+  width: 600rpx;
+  background-color: #fafafa;
+  border-radius: 20rpx;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -300rpx;
+  margin-top: -206rpx;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+}
+.bucket_content input{
+  background-color: #fff;
+  border-radius: 11rpx;
+  height: 60rpx;
+  margin-top: 40rpx;
+  padding-left: 20rpx;
+}
+.bucket_content image{
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  right: 17rpx;
+  top: 17rpx;
+}
+.forget-password{
+  font-size: 23rpx;
+  float: right;
+  margin-top: 20rpx;
+  color: #32a2f0;
+}
+.add-info{
+  color: #32a2f0;
+  font-size: 24.5rpx;
+  border: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+}
+.add-info:after {
+  border: none;
+}
+.balanceTack-wechat{
+  display: flex;
+}
+.balanceTack-wechat image{
+  width: 40.8rpx;
+  height: 40.8rpx;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}

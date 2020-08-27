@@ -1,0 +1,21 @@
+<view>
+  <scroll-view>
+    <view class="none-wrap" wx:if="{{!has_record}}" >
+      <image src="/images/nodata.png" class="none-img"></image>
+      <view class="apply-record">暂无添加员工</view>
+    </view>
+    <view wx:for="{{list}}" wx:key="index">
+      <view class="staff-item" bindtap="staff_details" data-addrid="{{item.id}}">
+        <view>{{item.truename}}</view>
+        <view >
+          <text wx:if="{{item.status == 1}}">已启用</text>
+          <text wx:if="{{item.status == 0}}">已禁用</text>
+          <image src="/images/jinru.png"></image>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="shezhi-quit" >
+    <view bindtap="staff_add" class="btn-quit">添加员工</view>
+  </view>
+</view>

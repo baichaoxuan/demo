@@ -1,0 +1,35 @@
+.paySucceed image{
+  width: 131.34rpx;
+  height: 166.67rpx;
+  margin: 180rpx 301rpx 0 317rpx ;
+}
+.paySucceed-pay{
+  font-size: 36.28rpx;
+  color: #333333;
+  margin-left: 302rpx;
+}
+navigator{
+  display: inline-block;
+}
+.paySucceed-tiao{
+  width: 191.12rpx;
+  height: 57.07rpx;
+  line-height: 57rpx;
+  text-align: center;
+border-radius: 28.53rpx;
+  border: solid 1.81rpx #4c92f7;
+  color:#4c92f7;
+  font-size: 27.17rpx;
+  margin-left: 280rpx;
+  margin-top: 70rpx;
+}
+.paySucceed-look{
+  width: 191.12rpx;
+  height: 57.07rpx;
+  font-size: 27.17rpx;
+  line-height: 57rpx;
+  text-align: center;
+background-color: #4c92f7;
+  border-radius: 28.53rpx;
+  color: #ffffff;
+}

@@ -1,0 +1,9 @@
+<!--pages/site/depositRefund/depositOk.wxml-->
+<page>
+  <view class="paySucceed">
+    <image src="/images/pic.png"></image>
+    <view class="paySucceed-pay">申请退押金提交成功</view>
+    <navigator url="/pages/site/embody/embody" hover-class="none" class="paySucceed-tiao" open-type="reLaunch">返回我的押金</navigator>
+    <navigator url="/pages/site/depositRecord/depositDetails?id={{id}}" hover-class="none"  class="paySucceed-look">查看详情</navigator>
+  </view>
+</page>

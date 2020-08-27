@@ -1,0 +1,8 @@
+<page>
+  <view class="paySucceed">
+    <image src="/images/pic.png"></image>
+    <view class="paySucceed-pay">支付成功，请等待配送</view>
+    <navigator url="/pages/site/index/index" hover-class="none" class="paySucceed-tiao" open-type="reLaunch">返回首页</navigator>
+    <navigator url="/pages/site/orderView/orderView?id={{id}}" hover-class="none"  class="paySucceed-look">查看订单</navigator>
+  </view>
+</page>

@@ -1,0 +1,29 @@
+<view>
+  <view class="balanceCheck-top">
+    <image wx:if="{{list.audit_status == 1}}" src="/images/pic.png"></image>
+    <image wx:if="{{list.audit_status == -1}}" src="/images/shibai.png"></image>
+    <image wx:if="{{list.audit_status == 0}}" src="/images/shenhe.png"></image>
+    <view class="balanceCheck-title" wx:if="{{list.audit_status == 0}}">申请审核已提交，请等待审核</view>
+    <view class="balanceCheck-predict" wx:if="{{list.audit_status == 0}}">提现预计3个工作日到账</view>
+    <view class="balanceCheck-title" wx:if="{{list.audit_status == 1}}">提现成功</view>
+    <view class="balanceCheck-title" wx:if="{{list.audit_status == -1}}">{{list.audit_remark}}</view>
+    <view class="balanceCheck-time">{{list.created}}</view>
+    <view class="balanceCheck-btn">
+      <view class="balanceCheck-list" bindtap="go_balancelist">提现记录</view>
+      <view class="balanceCheck-yue" bindtap="go_balance">返回余额</view>
+    </view>
+  </view>
+  <view>
+    <view class="balanceCheck-wechat">
+      <view>提现金额</view>
+      <view>￥{{list.amount}}</view>
+    </view>
+    <view class="balanceCheck-wechat">
+      <view>到账微信账户</view>
+      <view style="display: flex;align-items: center;">
+        <image src="{{list.tx_avatar}}"></image>
+        <view>{{list.tx_nickname}}</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,54 @@
+<form bindsubmit="formSubmit">
+ <view class="firm-information">
+   <view class="adress-person">
+      <text>* 公司名称</text>
+      <input  type="text"  name="firmName" placeholder-style="color:#ababab" placeholder="请填写营业执照上的公司名称" class="receive-goods"  value="{{list.company?list.company:firmname}}" bindblur='getInputValue'></input>
+    </view>
+    <view class="insertImage">
+      <view class="img-txt">* 营业执照</view>
+      <view class="img-border" bindtap="insertImage">
+         <image class="img-one" src="/images/shangchuantupian.png"  wx:if="{{!pic & !list.charter_url}}"></image>
+         <image class="img-two" src="{{pic?host+pic:host+list.charter_url}}" wx:if="{{pic || list.charter_url}}"></image>
+      </view>
+    </view>
+    <view class="adress-person">
+      <text>* 企业人数</text>
+      <picker style="float:right" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker">
+          <!-- <image src="/images/jinru-2.png" style="float:right;width:18rpx;height:18rpx;margin-top: 36rpx;margin-left:10rpx"></image> -->
+          <text style="float:right;color:#ababab;display:{{isShow ?'block':'none'}}" >请选择企业人数 </text >
+          <text style="color:#ababab;}}">{{array[index || list.total_staff - '1']}}</text> 
+        </view>
+      </picker>
+    </view>
+     <view class="adress-person">
+        <text >* 所在区域</text>
+        <!-- <image src="/images/jinru-2.png" style="float:right;width:18rpx;height:18rpx;margin-top: 36rpx;margin-left:10rpx"></image> -->
+        <input class="receive-goods" name="area" placeholder="请选择城市区县" bindtap="getLocation" placeholder-style="color:#ababab" value="{{list.area?list.area:area}}" style="text-align:right" />
+    </view>
+    <input class="adress-input" type = "text" placeholder='请填写详细办公地址（如道路、门牌号、小区、楼栋号）' name="address" value="{{list.address?list.address:address}}" placeholder-style="color: #c3c3c3;"/>
+  </view>
+  <!-- 其他需求 -->
+  <view class="postscript">
+    <text style="font-size:27rpx;">其他需求</text>
+    <textarea type="text" placeholder-style="font-size:27rpx;color:#c3c3c3" placeholder="{{placeholder}}" class="receive-goods1" maxlength="40" ></textarea>
+    </view>
+  <!-- 信息 -->
+  <view class="firm-name">
+    <view class="adress-person">
+      <text>* 您的姓名</text>
+      <input type="text"  name="name" placeholder-style="color:#ababab" placeholder="请输入您的姓名" class="receive-goods" maxlength="10"  value="{{list.truename}}" ></input>
+    </view>
+    <view class="adress-person">
+      <text>* 您的电话</text>
+      <input type="text"  name="mobile" placeholder-style="color:#ababab" placeholder="请填写手机号码" class="receive-goods" maxlength="11"  value="{{list.mobile}}"></input>
+    </view>
+    <view class="adress-person">
+      <text>* 您的职位</text>
+      <input type="text"  name="post" placeholder-style="color:#ababab" placeholder="请输入您的职位" class="receive-goods" maxlength="11"  value="{{list.job}}" ></input>
+    </view>
+  </view>
+  <view class="shezhi-quit" >
+    <button  formType="submit" class="btn-quit">提交</button>
+  </view>
+</form>

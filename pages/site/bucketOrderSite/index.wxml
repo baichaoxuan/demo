@@ -1,0 +1,47 @@
+<!--送水回桶-->
+<page>
+  <view >
+    <view class="delivery_title">补交押金</view>
+    <view class="orderForm-li" >
+      <view class="shopdetails-img"  wx:for="{{infoItem}}" wx:key="index">
+        <view style="display:flex">
+            <image class="shopCar-img" src="{{host}}{{item.img}}"></image>
+            <view style="display: inline-block;margin-left: 20rpx;line-height:46rpx;margin-top: 8rpx;">
+                <view class="shop-price">{{item.name}}</view>
+            </view>
+        </view>
+        <view style="margin-top:8rpx;">
+            <view class="shop-soldout">￥{{item.unit_price}}</view>
+            <view class="shopdetails-number">x {{item.num}}</view>
+        </view>
+      </view>
+      <view class="indexBujiao-sub">
+          <text class="indexBujiao-add">共计 {{info.deposit_num}}件</text>
+          <text class="indexBujiao-addprice">
+              总押金
+          </text>
+          <text style="color:#eb4739; font-size: 32.61rpx;font-weight: bold;line-height: 1rpx;">
+              ￥{{info.price}}
+          </text>
+      </view>
+    </view>
+  </view>
+  <view class="productDetails-yue" bindtap="useBalance"  wx:if="{{balance > info.price}}">
+    <view>可用余额{{balance}}元，使用余额支付</view>
+    <image src="/images/radio{{is_balance?'-checked':''}}.png"></image>
+  </view>
+   <view class="productDetails-yue" bindtap="usePrice"  wx:else>
+    <view>可用余额{{balance}}元，使用余额支付</view>
+    <image src="/images/radio.png"></image>
+  </view>
+  <view class="indexBujiao-foot" >
+    <view class="indexBujiao-total">
+        <view style="font-size:25.4rpx">总计 <text style="color:#eb4739;font-size:32.6rpx;font-weight: bold;"> ￥{{info.price>0?info.price:'0.00'}}</text></view>
+        <!-- <view class="indexBujiao-pay" bindtap="toSubmit">确认</view> -->
+        <!-- 支付前需绑定微信 -->
+        <button class="indexBujiao-pay" wx:if="{{!is_bindwx}}" open-type='getUserInfo' lang="zh_CN" bindgetuserinfo="getUserInfo">确认</button>
+        <button class="indexBujiao-pay" wx:if="{{is_bindwx}}" loading="{{is_submiting}}" bindtap="submitOrder">确认</button>
+    </view>
+  </view>
+  <view style="height:300rpx"></view>
+</page>

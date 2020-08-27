@@ -1,0 +1,34 @@
+<!--pages/shop/shop.wxml-->
+<view class="shop">
+  <view class="shop-banner">
+    <image src="/images/banner.png"></image>
+  </view>
+  <view class="shop-kind" >
+    <text class="{{now_cid==item.id?'menu-active':'menu-tab'}}" wx:for="{{cates}}" wx:key="id" bindtap="getList" data-cid="{{item.id}}">{{item.name}}</text>
+  </view>
+
+  <!-- 购物车浮层按钮 -->
+  <navigator class="cart_right_btn" url="/pages/site/cart/cart">
+      <image src="/images/gouwucheman.png"></image>
+      <text class="shop_details_addNum {{cart_num==0?'shop_details':''}}">{{cart_num>999?'999+':cart_num}}</text>
+  </navigator>
+
+  <scroll-view class="scroll-wrap">
+    <view class="none-wrap" wx:if="{{no_record}}">
+        <image src="../../images/nodata.png" class="none-img"></image>
+        <view class="apply-record">暂无记录</view>
+    </view>
+
+    <view class="shop-list">
+      <view class="shop-li" wx:for="{{list}}" wx:key="id">
+        <image src="{{host + item.img}}" bindtap="go2info" data-id="{{item.id}}"></image>
+        <view class="shop-name" bindtap="go2info" data-id="{{item.id}}">{{item.name}}</view>
+        <view class="shop-guige">规格：{{item.sku_desc}}</view>
+        <text>￥{{item.min_price}}</text><text style="font-size:22rpx;font-weight: normal;margin-left:4rpx">起</text>
+        <image class="shop-gouwuche" src="/images/gouwucheman1.png" bindtap="add2cart" data-id="{{item.id}}"></image>
+      </view>
+    </view>
+
+  </scroll-view>
+  <view class="already-bottom" wx:if="{{is_has_more==0}}">没有更多了~</view>
+</view>

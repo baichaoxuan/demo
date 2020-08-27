@@ -1,0 +1,65 @@
+.balance-tishi{
+  width: 750rpx;
+  height: 66.1rpx;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 23.6rpx;
+  display: flex;
+  align-items: center;
+}
+.balance-tishi image{
+  width: 23.6rpx;
+	height: 23.6rpx;
+  padding: 0 10rpx 0 30rpx;
+}
+.balance-topup{
+  height: 259rpx;
+  width: 100%;
+  padding: 0 28.1rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+.balance-title{
+  font-size: 25.4rpx;
+  line-height:106.4rpx;
+}
+.balance-rbm{
+  font-size: 49.3rpx;
+  line-height: 56rpx;
+}
+.balance-input{
+  display: flex;
+  align-items:flex-end;
+  border-bottom: 2rpx solid #eee;
+  padding: 10rpx 0;
+}
+.current-balance{
+  font-size: 23.6rpx;
+  line-height: 71.4rpx;
+  color: #c0c0c0;
+}
+.balance-foot{
+  position: absolute;
+  bottom: 26rpx;
+  left: 26rpx;
+}
+.balance-foot view{
+  display: inline-block;
+  font-size: 23.6rpx;
+  color: #a4a4a4;
+}
+.balance-foot .balance-protocol{
+  display: inline-block;
+  font-size: 23.6rpx;
+  color: #32a2f0;
+}
+.balance-foot .balance-affirm{
+  width: 695.7rpx;
+  height: 72.5rpx;
+  line-height: 72.5rpx;
+  text-align: center;
+	background-color: #4c92f7;
+  border-radius: 36.2rpx;
+  color: #fff;
+  margin-top: 25rpx;
+}

@@ -1,0 +1,12 @@
+<view>
+  <view class="balance-tishi">
+    <image src="/images/tishi.png"></image>
+    <text>仅限北京五环内用户充值</text>
+  </view>
+  <view class="discounts-balance" wx:for="{{activity}}" wx:key="index" >
+    <image src="/images/discounts{{item.id}}.png" ></image>
+    <button class="shop-buy" open-type='getUserInfo' lang="zh_CN" bindgetuserinfo="getUserInfo" data-id="{{item.id}}"></button>
+    <view class="discounts-recharge">充值￥{{item.amount}}</view>
+    <view class="discounts-give">￥{{item.give_amount}}</view>
+  </view>
+</view>

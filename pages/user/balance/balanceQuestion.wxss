@@ -1,0 +1,23 @@
+.ye_issue{
+  width: 708.3rpx;
+	background-color: #ffffff;
+  border-radius: 18.1rpx;
+  margin:0 auto;
+  padding: 24rpx 29rpx 24rpx 29rpx;
+  box-sizing: border-box;
+  margin-top: 15.4rpx;
+}
+.ye_issue image{
+  transform:rotate(90deg);
+  width: 13rpx;
+  height: 25rpx;
+  margin-top: 22rpx;
+}
+.issue-item{
+  display: flex;
+  justify-content: space-between;
+  line-height: 66rpx;
+}
+.issue-content{
+  display: none;
+}

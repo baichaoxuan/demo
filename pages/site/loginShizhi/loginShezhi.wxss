@@ -1,0 +1,62 @@
+/* pages/loginShizhi/loginShezhi.wxss */
+.shezhi-top{
+    width: 100%;
+    height: 145rpx;
+    background-color: #ffffff;
+    padding:26rpx 36rpx 0 36rpx;
+    font-size: 29rpx;
+    border-bottom:2rpx solid #eeeeee;
+    box-sizing: border-box;
+}
+.shezhi-xinxi{
+    float: left;
+    margin-left: 28rpx;
+    margin-top: 15rpx;
+}
+.shezhi-phone{
+    font-size: 25rpx;
+    color: #b0b0b0;
+    margin-top: 14rpx;
+}
+.shezhi-top image{
+    width: 108rpx;
+    height: 107rpx;
+    float: left;
+    border-radius: 50%;
+}
+.shezhi-warehouse,.shezhi-adress,.shezhi-quit,.shezhi-adress,.shezhi-quit1{
+    width: 100%;
+    height: 91rpx;
+    font-size: 29rpx;
+    background-color: #ffffff;
+    line-height: 91rpx;
+    display: flex;
+    justify-content:space-between;
+    padding:0 36rpx;
+    box-sizing: border-box;
+
+}
+.shezhi-adress{
+    margin: 17rpx 0;
+}
+.shezhi-quit{
+    justify-content:space-around;
+    align-content: center;
+    position: fixed;
+    bottom: 0;
+    height: 107rpx;
+}
+.shezhi-quit1{
+    margin: 17rpx 0;
+    justify-content: center;
+}
+.btn-quit{
+    width: 695.7rpx;
+    height: 72.5rpx;
+    background-color: #4c92f7;
+    border-radius: 36.2rpx;
+    color: #fff;
+    line-height: 72.5rpx;
+    text-align: center;
+    margin: auto;
+}

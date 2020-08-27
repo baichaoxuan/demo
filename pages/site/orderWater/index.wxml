@@ -1,0 +1,69 @@
+
+<page>
+    <view class="orderForm">
+        <view class="shop-kind" >
+            <text class="menu-tab {{tab_active=='to_assign'?'tab-active':''}}" data-gstatus="to_assign" bindtap="getList" >未接单</text>
+            <text class="menu-tab {{tab_active=='dispatching'?'tab-active':''}}" data-gstatus="dispatching" bindtap="getList" >配送中</text>
+            <text class="menu-tab {{tab_active=='completed'?'tab-active':''}}" data-gstatus="completed" bindtap="getList" >已完成</text>
+        </view>
+        <scroll-view class="scroll-wrap">
+            <view class="none-wrap" wx:if="{{no_record}}">
+                <image src="../../images/nodata.png" class="none-img"></image>
+                <view class="apply-record">暂无记录</view>
+            </view>
+            <view class="orderForm-item  " wx:for="{{list}}" wx:key="id">
+                <view class="orderForm-li">
+                    <view class="orderForm-t">
+                        <text>{{item.created}}</text>
+                        <text class="orderForm-state {{item.gstatus=='completed'?'status4':''}}">{{item.gstatus_name}}</text>
+                    </view>
+                    <navigator url="/pages/site/userorder/info?id={{item.id}}">
+                        <view class="shopdetails-img" wx:for="{{item.items}}" wx:key="product_id" wx:for-item="product" wx-for-index="index2">
+                            <view style="display:flex">
+                                <image class="shopCar-img" src="{{product.img?host+product.img:''}}"></image>
+                                <view style="display: inline-block;margin-left: 20rpx;line-height:36rpx;margin-top: 10rpx;">
+                                    <view class="shop-price">{{product.name}}</view>
+                                    <view class="shopCar-guige">规格:{{product.sku_desc}}</view>
+                                </view>
+                            </view>
+                            <view style="margin-top:10rpx;">
+                                <view class="shopdetails-number">x {{product.num}}</view>
+                            </view>
+                        </view>
+                    </navigator>
+                    <view class="index-address">
+                        <view>
+                            <image class="index-image" src="/images/shijian.png"></image>
+                            <text class="index-time">{{item.forward}}</text>
+                        </view>
+                        <view>
+                            <image class="index-image" src="/images/dizhi.png"></image>
+                            <text class="index-time">{{item.area_addr}}</text>
+                        </view>
+                    </view>
+                    <view class="{{item.gstatus =='completed'?'indexBujiao-sub1':'indexBujiao-sub '}}">
+                        <block wx:if="{{item.gstatus =='to_assign'}}">
+                            <view class="index-refuse" bindtap="refuse" data-orderId="{{item.id}}" data-accept="-1">拒单</view>
+                            <view class="index-accept" bindtap="accept"  data-orderId="{{item.id}}" data-accept="1">接单</view>
+                        </block>
+                        <block wx:if="{{item.gstatus =='dispatching'}}">
+                            <view class="index-refuse" bindtap="call_up" style="width:140rpx" data-phone="{{item.mobile}}">联系客户</view>
+                            <view class="delivery_add" wx:if="{{item.is_designating ==1}}" >
+                                <picker bindchange="bindPickerChange" mode="selector"  value="0" range="{{staff}}" range-key = "truename" data-orderId="{{item.id}}">
+                                    <view class="picker">
+                                        指派
+                                    </view>
+                                </picker>
+                            </view>
+                            <view class="index-accept" wx:if="{{item.delivery_status==1 || isSongda}}" bindtap="go_bucket" data-orderId="{{item.id}}">回桶</view>
+                            <view class="index-accept" wx:if="{{item.delivery_status==0}}"bindtap="go_delivery" data-orderId="{{item.id}}">送达</view>
+                        </block>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+        <view class="already-bottom" wx:if="{{is_has_more==0}}">-- 没有更多了--</view>
+        <view style="height:100rpx"></view>
+    </view>
+</page>
+

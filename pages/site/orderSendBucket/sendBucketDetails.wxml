@@ -1,0 +1,114 @@
+<page>
+  <view>
+    <view class="indexDetails-head">
+      {{list.gstatus_name}}
+    </view>
+    <view class="viewOrder-address">
+      <view class="top-address">
+          <image class="index-image" src="/images/shijian.png"></image>
+          <text class="index-time">{{list.ordereds}}</text>
+          <image class="top-icon" src="/images/peoplefill.png"></image>
+          <text class="top-name">{{list.truename}}</text> 
+      </view>
+      <image class="index-image" src="/images/dizhi.png"></image>
+      <text class="top-info">{{list.area_addr}}</text>
+      <image class="top-arrow" src="/images/address.png"></image>
+    </view>
+    <!-- 押金桶信息 -->
+     <view style="background-color:#fff;margin-top:16rpx;padding:11rpx 22rpx;padding-top: 0;">
+      <view class="backet-detail">退桶回收</view>
+      <view class="shopdetails-img" wx:for="{{list.item}}" wx:key="index">
+          <view style="display:flex">
+              <image class="shopCar-img" src="{{host+item.img}}"></image>
+              <view style="display: inline-block;margin-left: 20rpx;line-height: 21px;margin-top:13rpx">
+                  <view class="shop-price">{{item.name}}</view>
+              </view>
+          </view>
+          <view style="margin-top:10rpx;">
+              <view class="shop-soldout">￥{{item.unit_price}}</view>
+              <view class="shopdetails-number">x {{item.num}}</view>
+          </view>
+      </view>
+    </view>
+    <!-- 退桶信息 -->
+    <view style="background-color:#fff;margin-top:16rpx;padding:11rpx 22rpx;padding-top: 0;display:{{list.item_real.length != 0?'block':'none'}}">
+      <view class="backet-detail">退桶信息</view>
+      <view class="shopdetails-img" wx:for="{{list.item_real}}" wx:key="index">
+          <view style="display:flex">
+              <image class="shopCar-img" src="{{host+item.img}}"></image>
+              <view style="display: inline-block;margin-left: 20rpx;line-height: 21px;margin-top:13rpx">
+                  <view class="shop-price">{{item.name}}</view>
+              </view>
+          </view>
+          <view style="margin-top:10rpx;">
+              <view class="shop-soldout">￥{{item.unit_price}}</view>
+              <view class="shopdetails-number">x {{item.num}}</view>
+          </view>
+      </view>
+      <view class="depositDetails-add">
+        <view class="depositDetails-price">共计 {{list.item_real_num}}件</view>
+      </view>
+    </view>
+    <!-- 预约上门时间 -->
+    <view class="deposit-time">
+      <view class="appointment-time">
+        <view>预约上门时间</view>
+        <view>{{list.ordereds}}</view>
+      </view>
+      <view class="mark">
+        <text>备注</text>
+        <view style="width: 90%;">{{list.memo}}</view>
+      </view>
+      <view>
+      
+      </view>
+    </view>
+    <!-- 订单详情 -->
+    <view class="indexDetails-bottom">
+        <view>订单详情</view>
+        <view >
+            <text>订单编号 </text>
+            <text>{{list.id}}</text>
+            <text class="indexDetails-copy" bindtap="copy">复制</text>
+        </view>
+        <view>
+            <text wx:if="{{list.is_designating ==0}}">指派员工 </text>
+            <text>{{list.staff_name}}</text>
+        </view>
+        <view>
+            <text>申请时间 </text>
+            <text>{{list.created}}</text>
+        </view>
+         <view hidden="{{list.gstatus != 0}}">
+            <text>取消时间 </text>
+            <text>{{list.canceled}}</text>
+        </view>
+        <view hidden="{{list.gstatus <2}}">
+            <text>回收时间 </text>
+            <text>{{list.bucketbacked}}</text>
+        </view>
+        <view hidden="{{list.gstatus<3}}">
+            <text>退款时间 </text>
+            <text>  {{list.audited}}</text>
+        </view>
+        <view hidden="{{list.gstatus<3}}">
+            <text>退款金额 </text>
+            <text>{{list.price}}</text>
+        </view>
+    </view>
+     <view class="cancel-application" wx:if="{{list.gstatus_name == '待取桶'}}">
+        <block >
+          <view class="orderForm-cancel" bindtap="call_up"  data-phone="{{list.mobile}}" style=" width:171.26rpx;border: solid 1.8rpx #4c92f7;background-color:#fff;color:#4c92f7" >联系客户</view>
+          <view class="orderForm-cancel" wx:if="{{list.is_designating ==1}}"  style="width:171.26rpx">
+            <picker bindchange="bindPickerChange" mode="selector"  value="0" range="{{staff}}" range-key = "truename" data-orderId="{{item.id}}">
+                <view class="picker">
+                    指派
+                </view>
+            </picker>
+        </view>
+          <view class="orderForm-cancel" bindtap="go_bucket" data-orderId="{{list.id}}" style="width:171.26rpx">退桶回收</view>
+        </block>
+    </view>
+    <view style="width:100%;height:150rpx"></view>
+  </view>
+</page>

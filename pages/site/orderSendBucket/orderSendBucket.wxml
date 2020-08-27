@@ -1,0 +1,60 @@
+
+<page>
+    <view class="orderForm">
+        <view class="shop-kind" >
+            <text class="menu-tab {{tab_active=='unbucketback'?'tab-active':''}}" data-gstatus="unbucketback" bindtap="getList" >待取桶</text>
+            <text class="menu-tab {{tab_active=='unstorage'?'tab-active':''}}" data-gstatus="unstorage" bindtap="getList" >待平台回收</text>
+            <text class="menu-tab {{tab_active=='completed'?'tab-active':''}}" data-gstatus="completed" bindtap="getList" >已完成</text>
+        </view>
+        <scroll-view class="scroll-wrap">
+            <view class="none-wrap" wx:if="{{no_record}}">
+                <image src="../../images/nodata.png" class="none-img"></image>
+                <view class="apply-record">暂无记录</view>
+            </view>
+            <view class="orderForm-item  " wx:for="{{list}}" wx:key="id">
+                <view class="orderForm-li">
+                    <view class="orderForm-t">
+                        <text>服务单：{{item.id}}</text>
+                    </view>
+                    <navigator url="/pages/site/orderSendBucket/sendBucketDetails?id={{item.id}}">
+                        <view class="shopdetails-img" wx:for="{{item.item}}" wx:key="product_id" wx:for-item="product" wx-for-index="index2">
+                            <view style="display:flex">
+                                <image class="shopCar-img" src="{{product.img?host+product.img:''}}"></image>
+                               <view class="shop-price">{{product.name}}</view>
+                            </view>
+                            <view style="margin-top:10rpx;">
+                                <view class="shopdetails-number">x {{product.num}}</view>
+                            </view>
+                        </view>
+                    </navigator>
+                    <view class="index-address">
+                        <view>
+                            <image class="index-image" src="/images/shijian.png"></image>
+                            <text class="index-time">{{item.ordereds}}</text>
+                        </view>
+                        <view>
+                            <image class="index-image" src="/images/dizhi.png"></image>
+                            <text class="index-time">{{item.area_addr}}</text>
+                        </view>
+                    </view>
+                    <view class="{{tab_active !='unbucketback'?'indexBujiao-sub1':'indexBujiao-sub '}}">
+                        <block wx:if="{{tab_active =='unbucketback'}}">
+                            <view class="index-refuse" bindtap="call_up" style="width:140rpx" data-phone="{{item.mobile}}">联系客户</view>
+                            <view class="index-accept" wx:if="{{item.is_designating ==1}}" style="margin-right:20rpx">
+                                <picker bindchange="bindPickerChange" mode="selector"  value="0" range="{{staff}}" range-key = "truename" data-orderId="{{item.id}}">
+                                    <view class="picker">
+                                        指派
+                                    </view>
+                                </picker>
+                            </view>
+                            <view class="index-accept" bindtap="go_bucket" data-orderId="{{item.id}}">退桶回收</view>
+                        </block>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+        <view class="already-bottom" wx:if="{{is_has_more==0}}">-- 没有更多了--</view>
+        <view style="height:100rpx"></view>
+    </view>
+</page>
+

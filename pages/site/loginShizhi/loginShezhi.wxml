@@ -1,0 +1,28 @@
+<!--pages/loginShizhi/loginShezhi.wxml-->
+<view>
+    <view class="shezhi-top" bindtap="password_state">
+        <image  src="{{user.avatar?user.avatar : '/images/tx2.png'}}"></image>
+        <view class="shezhi-xinxi">
+            <view>{{site.name}}</view>
+            <view class="shezhi-phone">{{site.mobile}}</view>
+        </view>
+        <image src="/images/jinru.png" style="float:right;width:14rpx;height:22rpx;margin-top: 34rpx"></image>
+    </view>
+    <view class="shezhi-warehouse">
+        <view>所属仓库</view>
+        <view>{{site.warehouse}}</view>
+    </view>
+    <navigator class="shezhi-adress"  url="/pages/site/staff/staff">
+        <view>员工管理</view>
+        <image src="/images/jinru.png" style="float:right;width:14rpx;height:22rpx;margin-top: 34rpx"></image>
+    </navigator>
+    <navigator class="shezhi-adress"  url="/pages/site/adress/adress">
+        <view>我的收货地址</view>
+        <image src="/images/jinru.png" style="float:right;width:14rpx;height:22rpx;margin-top: 34rpx"></image>
+    </navigator>
+    <!-- 切换用户 -->
+    <!-- <view class="shezhi-quit1" bindtap='tologs' >切换用户</view> -->
+    <view class="shezhi-quit" >
+        <view bindtap="logOut" class="btn-quit">退出当前店铺</view>
+    </view>
+</view>

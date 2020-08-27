@@ -1,0 +1,32 @@
+<page>
+    <view class="balance">
+        <view class="balance-top">
+            <image src="/images/2222.png"></image>
+            <view class="balance-yue">余额</view>
+            <view class="balance-money">￥{{balance > 0?balance:'0.00'}}</view>
+            <view class="balance-takeout" bindtap="go_balance_takeout">余额提现</view>
+        </view>
+        
+        <scroll-view class="scroll-wrap">
+            <view class="none-wrap" wx:if="{{no_record}}">
+                <image src="/images/nodata.png" class="none-img"></image>
+                <view class="apply-record">暂无记录</view>
+            </view>
+
+            <view class="balance-center">
+                <view class="balance-li" wx:for="{{list}}" wx:key="id">
+                    <view style="display:flex">
+                         <image wx:if="{{item.mark == 'bucket_back'}}" src="/images/bill_admin_add.png"></image>
+                         <image wx:else src="/images/bill_{{item.mark == 'bucket_pay'?'admin_sub':item.mark }}.png"></image>
+                        <view style="margin-top: 13rpx;">
+                            <view style="font-size: 25.36rpx;color:#000">{{item.marks}}</view>
+                            <view style="font-size: 21.74rpx;color:#a9a9a9">{{item.created}}</view>
+                        </view>
+                    </view>
+                    <view class="amount_{{item.amount>0?'add':'sub'}}">{{item.amount}}</view>
+                </view>
+            </view>
+        </scroll-view>
+        <view class="already-bottom" wx:if="{{is_has_more==0}}">没有更多了~</view>
+    </view>
+</page>

@@ -1,0 +1,27 @@
+<form bindsubmit="formSubmit" style="overflow: hidden;">
+  <image class="firm-image" src="/images/qiyerenzheng.png"></image>
+  <view class="fire-login">
+    <view class="firm-title">
+      企业注册
+    </view>
+    <view class="adress-person">
+      <text>企业账号</text>
+      <input type="text"  name="name" placeholder-style="color:#ababab" placeholder="请设置账号 6-12位数字或字母组合" class="receive-goods" maxlength="18" minlength="6" value="{{account}}"></input>
+    </view>
+    <view class="adress-person">
+      <text>企业密码</text>
+      <input type="text"  name="password" placeholder-style="color:#ababab" placeholder="请设置密码 6-18位数字或字母组合" class="receive-goods" maxlength="18" minlength="6" password></input>
+    </view>
+     <view class="adress-person">
+      <text>确认密码</text>
+      <input type="text"  name="pwd" placeholder-style="color:#ababab" placeholder="请再输入一次密码" class="receive-goods" maxlength="18" minlength="6" password></input>
+    </view>
+  </view>
+  <view class="firm-text">
+    已有账号，去 <text style="color:#4e94f7;" bindtap="go_firmlogin">登录</text>
+  </view>
+  <view class="shezhi-quit">
+    <view style="font-size:20rpx;margin-left:163rpx;margin-bottom:20rpx"> 点击确认 即表示您已经同意<text style="color:#4e94f7;" bindtap="go_firmprotocol">《用户协议》</text></view>
+    <button  formType="submit" class="btn-quit">下一步</button>
+  </view>
+</form>

@@ -1,0 +1,234 @@
+
+.viewOrder{
+  padding-bottom: 160rpx;
+}
+.indexDetails-content{
+  background-color: #ffffff;
+}
+.indexDetails-head{
+  width: 100%;
+  height: 99.64rpx;
+  line-height: 99.64rpx;
+  background-color: #4c92f7;
+  color: #ffffff;
+  font-size: 25.36rpx;
+  font-weight: bold;
+  text-align: center;
+}
+.viewOrder-address{
+  width: 749.09rpx;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  padding:40rpx 21rpx 0 21rpx;
+}
+
+.top-icon{
+  width: 24rpx;
+	height: 29rpx;
+  margin-right: 18rpx;
+  margin-left: 30rpx;
+}
+.top-address{
+  width: 530rpx;
+  font-size: 25rpx;
+  line-height: 25rpx;
+  color: #424242;
+  display: flex;
+  margin-bottom: 18rpx;
+}
+.top-address text{
+  max-height: 80rpx;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.top-info{
+  color: #000000;
+  font-size: 25rpx;
+  line-height: 45rpx;
+}
+.top-arrow{
+  width: 100%;
+  height: 9rpx;
+  display: block;
+  margin-top: 20rpx;
+}
+
+.shopdetails-img{
+  width: 697.46rpx;
+  height: 142.21rpx;
+  background-color: #f6f6f6;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  padding: 16.3rpx 14.5rpx;
+  margin-top: 11rpx;
+  }
+.shopCar-img{
+width: 110.51rpx;
+height: 109.6rpx;
+background-color: #4c92f7;
+}
+.shop-price{
+font-size: 25rpx;
+line-height: 45rpx;
+}
+.shopCar-guige{
+font-size: 21.74rpx;
+color: #a4a4a4;
+}
+.shop-soldout{
+font-size: 24rpx;
+line-height: 45rpx;
+color: #4e4e4e;
+}
+.shopdetails-number{
+font-size: 22rpx;
+margin-left: 43rpx;
+float: right;
+}
+.indexBujiao-sub{
+  display: flex;
+  justify-content: flex-end;
+  align-items:center;
+  background-color: #ffffff;
+  padding: 0 30rpx;
+  border-bottom: 1.81rpx solid #eeeeee;
+}
+.indexBujiao-add{
+  font-size: 20rpx;
+  color: #c3c3c3;
+  margin-right: 20rpx;
+}
+.indexBujiao-addprice{
+  font-size: 25.36rpx;
+  color: #000000;
+  padding-bottom: 17px;
+  box-sizing: border-box;
+  font-weight: bold;
+}
+.indexDetails-center view{
+  display: flex;
+  justify-content: space-between;
+  line-height: 41rpx;
+}
+.indexDetails-bottom{
+  width: 100%;
+  background-color: #ffffff;
+  margin-top: 14.5rpx;
+  display: flex;
+  flex-direction:column;
+  padding:27.2rpx  23.5rpx;
+  box-sizing: border-box;
+  line-height: 45rpx;
+  margin-top: 14.5rpx;
+}
+.indexDetails-center text{
+  font-size: 25.36rpx;
+  color: #000000;
+}
+.indexDetails-buy text:first-child{
+  font-size: 25.36rpx;
+  font-weight: bold;
+  color: #000000;
+}
+.indexDetails-buy text:last-child{
+  font-size: 32.61rpx;
+  font-weight: bold;
+  color: #eb4739;
+}
+.indexDetails-bottom view{
+  font-size: 25.36rpx;
+  color: #000000;
+}
+.indexDetails-bottom text{
+  font-size: 21.74rpx;
+  color: #6a6a6a;
+}
+.indexDetails-bottom .indexDetails-copy{
+  display: inline-block;
+  width: 86.05rpx;
+  height: 39.86rpx;
+  background-color: #edf4fe;
+  border-radius: 19.5rpx;
+  font-size: 24.46rpx;
+  color: #4c92f7;
+  text-align: center;
+  line-height: 39.86rpx;
+  float: right;
+}
+.shop-footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 114rpx;
+  line-height: 87rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding-left: 42rpx;
+  padding-top: 20rpx;
+  padding-right: 33rpx;
+  display: flex;
+  justify-content:flex-end;
+  box-shadow: 0rpx 0rpx 9rpx 0rpx 
+		rgba(0, 0, 0, 0.1);
+}
+.shop-call{
+  display: inline-block;
+  width: 228.26rpx;
+  height: 72.46rpx;
+  line-height: 72.46rpx;
+  text-align: center;
+  background-image: linear-gradient(
+		#ffffff, 
+		#ffffff), 
+	linear-gradient(
+		#b3b3b3, 
+		#b3b3b3);
+	border-style: solid;
+	border-width: 1.8rpx;
+  border-radius: 36.23rpx;
+  color: #eb4839;
+  box-sizing: border-box;
+  font-size: 27.17rpx;
+  margin-left: 40rpx;
+}
+.shop-buy{
+  display: inline-block;
+  width: 228.26rpx;
+  height: 72.46rpx;
+  line-height: 72.46rpx;
+  text-align: center;
+background-image: linear-gradient(-27deg, 
+  #ec6d31 0%, 
+  #eb4739 100%), 
+linear-gradient(
+  #4c92f7, 
+  #4c92f7);
+background-blend-mode: normal, 
+  normal;
+border-radius: 36.23rpx;
+  color: #ffffff;
+  box-sizing: border-box;
+  font-size: 27.17rpx;
+  margin-left: 40rpx;
+}
+.shop-cancel{
+  width: 237.32rpx;
+  height: 72.46rpx;
+  line-height: 72.46rpx;
+  text-align: center;
+  background-color: #d4d4d4;
+  border-radius: 36.23rpx;
+  font-size: 27.17rpx;
+  color: #ffffff;
+}
+.index-image{
+  width: 26.3rpx;
+  height: 27.2rpx;
+  margin-right: 6px;
+}

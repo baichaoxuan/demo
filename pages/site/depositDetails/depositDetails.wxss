@@ -1,0 +1,184 @@
+/* pages/depositDetails/depositDetails.wxss */
+.viewOrder{
+    padding-bottom: 160rpx;
+  }
+  .indexDetails-content{
+    background-color: #ffffff;
+    padding-top: 15rpx;
+  }
+  .indexDetails-head{
+    width: 100%;
+    height: 99.64rpx;
+    line-height: 99.64rpx;
+    background-color: #4c92f7;
+    color: #ffffff;
+    font-size: 25.36rpx;
+    font-weight: bold;
+    text-align: center;
+  }
+  .viewOrder-address{
+    width: 749.09rpx;
+  height: 160.33rpx;
+  background-color: #ffffff;
+  }
+  
+  .top-icon{
+    width: 78rpx;
+    height: 78rpx;
+    margin-left: 15rpx;
+  }
+  .top-address{
+    width: 530rpx;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    color: #000000;
+    margin: 0 30rpx;
+  }
+  .top-address text{
+    max-height: 80rpx;
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  .top-info{
+    color: #939393;
+  }
+  
+  .shopdetails-img{
+    width: 697.46rpx;
+    height: 142.21rpx;
+    background-color: #f6f6f6;
+    margin: 11rpx 25rpx;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    padding: 16.3rpx 14.5rpx;
+    }
+  .shopCar-img{
+  width: 110.51rpx;
+  height: 109.6rpx;
+  background-color: #4c92f7;
+  }
+  .shop-price{
+  font-size: 25rpx;
+  line-height: 45rpx;
+  }
+  .shopCar-guige{
+  font-size: 21.74rpx;
+  color: #a4a4a4;
+  }
+  .shop-soldout{
+  font-size: 24rpx;
+  line-height: 45rpx;
+  color: #4e4e4e;
+  }
+  .shopdetails-number{
+  font-size: 22rpx;
+  float: right;
+  }
+  .indexDetails-center{
+    width: 100%;
+    background-color: #ffffff;
+    padding:25rpx 30rpx 25rpx 45.3rpx;
+    box-sizing: border-box;
+  }
+  .indexDetails-center view{
+    display: flex;
+    justify-content: space-between;
+    line-height: 45rpx;
+  }
+  .indexDetails-bottom{
+    width: 100%;
+    background-color: #ffffff;
+    margin-top: 14.5rpx;
+    display: flex;
+    flex-direction:column;
+    padding:27.2rpx  0 27rpx 23.5rpx;
+    box-sizing: border-box;
+    line-height: 45rpx;
+    margin-top: 14.5rpx;
+  }
+  .indexDetails-center text{
+    font-size: 25.36rpx;
+    color: #000000;
+  }
+  .indexDetails-buy text:first-child{
+    font-size: 25.36rpx;
+    font-weight: bold;
+    color: #000000;
+  }
+  .indexDetails-buy text:last-child{
+    font-size: 32.61rpx;
+    font-weight: bold;
+    color: #eb4739;
+  }
+  .indexDetails-bottom view{
+    font-size: 25.36rpx;
+    color: #000000;
+  }
+  .indexDetails-bottom text{
+    font-size: 21.74rpx;
+    color: #6a6a6a;
+  }
+  .indexDetails-bottom .indexDetails-copy{
+    display: inline-block;
+    width: 86.05rpx;
+    height: 39.86rpx;
+    background-color: #edf4fe;
+    border-radius: 19.5rpx;
+    font-size: 24.46rpx;
+    color: #4c92f7;
+    text-align: center;
+    line-height: 39.86rpx;
+    float: right;
+    margin-right: 20rpx;
+  }
+  .shop-footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 131rpx;
+    line-height: 87rpx;
+    background-color: #fff;
+    box-sizing: border-box;
+    padding-left: 42rpx;
+    padding-top: 20rpx;
+    padding-right: 33rpx;
+    display: flex;
+    justify-content:flex-end
+  }
+  .shop-buy{
+    display: inline-block;
+    width: 228.26rpx;
+    height: 72.46rpx;
+    line-height: 72.46rpx;
+    text-align: center;
+  background-image: linear-gradient(-27deg, 
+    #ec6d31 0%, 
+    #eb4739 100%), 
+  linear-gradient(
+    #4c92f7, 
+    #4c92f7);
+  background-blend-mode: normal, 
+    normal;
+  border-radius: 36.23rpx;
+    color: #ffffff;
+    box-sizing: border-box;
+    font-size: 27.17rpx;
+    margin-left: 40rpx;
+  }
+  .shop-cancel{
+    width: 237.32rpx;
+    height: 72.46rpx;
+    line-height: 72.46rpx;
+    text-align: center;
+  background-color: #d4d4d4;
+    border-radius: 36.23rpx;
+    font-size: 27.17rpx;
+    color: #ffffff;
+  }
+  

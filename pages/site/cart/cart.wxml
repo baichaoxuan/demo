@@ -1,0 +1,59 @@
+<page>
+	<view class="shopCar-top">
+		<view class="item " wx:for="{{list}}" wx:key="index">
+			<movable-area>
+				<movable-view  class="shopdetails-img"  direction="horizontal" inertia="true"  x="{{item.xmove}}" data-productIndex="{{index}}" bindchange="handleMovableChange">
+						<view style="margin-top: 15rpx;line-height: 45rpx;display: flex;">
+							<image class="shopCar-checked" src="/images/radio{{list_check[index]?'-checked':''}}.png" data-index="{{index}}" bindtap="itemCheck"></image>
+							<image class="shopCar-img" src="{{host+item.img}}"></image>
+							<view >
+								<view class="shop-price">{{item.name}}</view>
+								<view class="shopCar-guige">规格:{{item.sku_desc}}</view>
+							</view>
+						</view>
+						<view style="margin-top:10rpx;">
+							<view class="shop-soldout">￥{{item.cost_price}}</view>
+							<view style="display: flex;align-content: center;">
+								<view style="width: 100rpx;height: 80rpx;" >
+									<image style="width: 28rpx;height: 28rpx;margin-top:8rpx;margin-left：20rpx;margin-right：8rpx;margin-left：20rpx;float:right;" src="{{item.num==1?'/images/jianshao.png':'/images/jianshao2.png'}}" bindtap="jianshao" data-index='{{index}}' ></image>
+								</view>
+								<input type = "number" class="shopdetails-number" bindinput='Manual' value='{{item.num}}' data-index='{{index}}'></input>
+								<view style="width: 50rpx;height: 80rpx;margin-right:-19rpx;" >
+									<image style="width: 28rpx;height: 28rpx;margin-top:8rpx;" src="/images/zengjia.png" bindtap="zengjia" data-index='{{index}}'></image>
+								</view>
+							</view>
+						</view>
+					</movable-view>
+			</movable-area>
+			<view class="delete-btn" data-index="{{index}}" bindtap="del_item">删除</view>
+		</view>
+		<view class="none-wrap" wx:if="{{list.length==0}}">
+				<image src="/images/nodata.png" class="none-img"></image>
+				<view class="apply-record">暂无记录</view>
+		</view>
+	</view>
+	<view class="shopCar-bottom">
+			<view style="font-size: 25.36rpx;color: #000000; margin: 26rpx 0;margin-left: 308rpx;">--历史购买--</view>
+			<view class="shop-list">
+					<view class="shop-li" wx:for="{{history_buys}}" wx:key="id">
+							<image src="{{host + item.img}}" bindtap="go2info" data-id="{{item.id}}"></image>
+							<view class="shop-name" bindtap="go2info" data-id="{{item.id}}">{{item.name}}</view>
+							<view class="shop-guige">规格：{{item.sku_desc}}</view>
+							<text>￥{{item.min_price}}</text><text style="font-size:22rpx;font-weight: normal;margin-left:4rpx">起</text>
+							<image class="shop-gouwuche" src="/images/gouwucheman1.png" bindtap="add2cart" data-id="{{item.id}}"></image>
+					</view>
+			</view>
+	</view>
+	<view class="shop-footer">
+		<view class="num_tips" hidden="{{cart_min_product_num-pdt_num<=0}}">还差{{cart_min_product_num-pdt_num}}桶，可免费配送</view>
+		<view bindtap="isAllCheck" style="display: flex;">
+			<image class="shopCar-checkeall" src="/images/radio{{is_all_checked?'-checked':''}}.png"></image>
+			<text class="shopCar-all">全选</text>
+		</view>
+		<view class="shopdetails-addpric">
+			<text>合计</text>
+			<text class="shopCar-price">￥{{total_amount}}</text>
+			<button class="shop-buy" bindtap="submit_cart">去结算</button>
+		</view>
+	</view>
+</page>

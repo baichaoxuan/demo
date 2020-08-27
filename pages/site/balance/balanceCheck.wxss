@@ -1,0 +1,71 @@
+.balanceCheck-top{
+  background-color: #fff;
+  padding: 87rpx 0;
+}
+.balanceCheck-top image{
+  width: 131.3rpx;
+  height: 166.7rpx;
+  text-align: center;
+  margin-left: 42%;
+}
+.balanceCheck-title{
+  font-size: 36.3rpx;
+  color: #333333;
+  text-align: center;
+  line-height: 90.7rpx;
+}
+.balanceCheck-predict{
+  font-size: 25.4rpx;
+  color: #000000;
+  text-align: center;
+}
+.balanceCheck-time{
+  font-size: 23.6rpx;
+  color: #c0c0c0;
+  text-align: center;
+}
+.balanceCheck-btn{
+  display: flex;
+  justify-content: center;
+  margin-top: 40rpx;
+}
+.balanceCheck-list{
+  width: 191.1rpx;
+  height: 57.1rpx;
+  line-height:57.1rpx ;
+	border-radius: 28.5rpx;
+  border: solid 1.8rpx #4c92f7;
+  font-size: 27.2rpx;
+  color:#4c92f7;
+  text-align: center;
+  margin-right: 50rpx;
+}
+.balanceCheck-yue{
+  width: 191.1rpx;
+  height: 57.1rpx;
+  line-height: 57.1rpx;
+	background-color: #4c92f7;
+  border-radius: 28.5rpx;
+  font-size: 27.2rpx;
+  text-align: center;
+  color: #fff;
+}
+.balanceCheck-wechat{
+  width: 100%;
+  height: 85.1rpx;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 42rpx;
+  align-items: center;
+  background-color: #fff;
+  font-size: 25.4rpx;
+  box-sizing: border-box;
+  margin-top: 14.5rpx;
+}
+.balanceCheck-wechat image {
+  width: 40.8rpx;
+  height: 40.8rpx;
+  border-radius: 50%;
+  margin-right: 10rpx;
+  }
+  

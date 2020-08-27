@@ -1,0 +1,245 @@
+/* pages/site/delivery/delivery.wxss */
+page{
+  width: 100%;
+  overflow-x: hidden;
+}
+.shopdetails-number{
+  width: 82.05rpx;
+  height: 35.86rpx;
+  background-color: #edf4fe;
+  border-radius: 25.5rpx;
+  font-size: 24.46rpx;
+  color: #424242;
+  display: inline-block;
+  margin: 0 0.3rem;
+  text-align: center;
+}
+.delivery_title{
+  height: 84.2rpx;
+  width: 100%;
+  line-height: 84.2rpx;
+  font-size: 29rpx;
+  margin-left: 30rpx;
+}
+.delivery_list{
+  padding: 28rpx 27rpx 0 23rpx;
+  box-sizing: border-box;
+}
+.shopdetails-img{
+  width: 694.5rpx;
+  height: 142.3rpx;
+  background-color: #f6f6f6;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  padding: 16.3rpx 30rpx 16.3rpx 15rpx;
+  margin-bottom:13.6rpx ;
+  }
+  .shopCar-img{
+  width: 110.51rpx;
+  height: 109.6rpx;
+  background-color: #424242;
+  }
+  .shop-price{
+  font-size: 25rpx;
+  line-height: 45rpx;
+  }
+  .shopCar-guige{
+  font-size: 21.74rpx;
+  color: #a4a4a4;
+  }
+  .shop-soldout{
+  font-size: 24rpx;
+  line-height: 45rpx;
+  color: #4e4e4e;
+  }
+  .shopdetails-num{
+  font-size: 27rpx;
+  float: right;
+  }
+  .indexDetails-add{
+    font-size: 27rpx;
+    color: #000000;
+    font-weight: bold;
+    line-height: 80rpx;
+    margin-left: 585rpx;
+}
+.item{
+  position:relative;
+  top: 0;
+  background-color: #ffffff;
+}
+.shopCar-img{
+  width: 110.51rpx;
+  height: 109.6rpx;
+  margin-right: 20rpx;
+}
+.shopCar-checked{
+  width: 22.64rpx;
+  height: 22.64rpx;
+  margin-top: 41rpx;
+  margin-right: 21rpx;
+}
+.shop-price{
+  font-size: 25rpx;
+  line-height: 45rpx;
+}
+.shopCar-guige{
+  font-size: 21.74rpx;
+  color: #a4a4a4;
+}
+.shop-soldout{
+  font-size: 24rpx;
+  line-height: 45rpx;
+  color: #c3c3c3;
+  justify-content: flex-end;
+  display: flex;
+  margin-bottom: 10rpx;
+  margin-right: 6rpx;
+}
+.shopdetails-imgs{
+  /* position: relative;
+  left: 0; */
+  height: 191.12rpx;
+  background-color: #ffffff;
+  /* margin: 19rpx 21rpx; */
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  padding: 39rpx 26rpx 21rpx 29.9rpx;
+  z-index: 3;
+  border-bottom:2.8rpx solid #f6f6f6;
+}
+.delivery_tianjia{
+  height: 97rpx;
+  line-height: 97rpx;
+  width: 100%;
+  font-size: 24rpx;
+  color: #424242;
+  padding-left: 462rpx;
+  box-sizing: border-box;
+}
+.delivery_add{
+  display: inline-block;
+  width: 141.3rpx;
+  height: 45.29rpx;
+  line-height: 45.29rpx;
+  text-align: center;
+  font-size: 23rpx;
+  color: #ffffff;
+	background-color: #3369ff;
+  border-radius: 22.64rpx;
+  margin-left: 20rpx;
+}
+.indexBujiao-total{
+  width: 100%;
+  height: 108.7rpx;
+  background-color: #ffff;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content:flex-end;
+  line-height: 108rpx;
+  box-shadow: 0rpx 0rpx 9rpx 0rpx 
+    rgba(0, 0, 0, 0.1);
+  z-index: 9;
+}
+.indexBujiao-pay{
+  width: 228.3rpx;
+  height: 72.5rpx;
+  background-image: linear-gradient(-27deg, #ec6d31 0%, #eb4739 100%), linear-gradient( #4c92f7, #4c92f7);
+  background-blend-mode: normal, normal;
+  border-radius: 36.2rpx;
+  color: #ffffff;
+  line-height: 72.46rpx;
+  text-align: center;
+  font-size: 27rpx;
+  margin-top: 19rpx;
+  margin-right: 36rpx;
+  margin-left: 36rpx;
+}
+.indexPail-erweima{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background:rgba(0,0,0,0.3);
+}
+.indexPail-close{
+  width: 32rpx;
+  height: 32rpx;
+  float: right;
+  margin-top: 19rpx;
+  margin-right: 23rpx;
+
+}
+.indexPail-zhezhao{
+  width: 480rpx;
+  height: 480rpx;
+  border-radius: 40rpx;
+  background-color: #ffffff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -240rpx;
+  margin-left: -240rpx;
+  
+}
+.indexPail-zhezhao view{
+  width: 300rpx;
+  height: 300rpx;
+  background-color: aquamarine;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -130rpx;
+  margin-left: -150rpx;
+}
+.QR_code{
+  display: inline-block;
+  margin-left: 200rpx;
+  font-size: 27rpx;
+}
+.diff-price{
+  font-size: 28rpx;
+  text-align: center;
+  margin:0 20rpx;
+  margin-top: 20rpx;
+}
+.erweima{
+  width: 300rpx;
+  height: 300rpx;
+}
+.delivery-tishi{
+  width: 100%;
+  height: 75rpx;
+  position: fixed;
+  top: 0;
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  font-size: 25rpx;
+  padding-left: 29rpx;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+
+}
+.delivery-cj,.delivery-yj{
+  display: flex;
+  justify-content: space-between;
+  font-size: 25.4rpx;
+  line-height: 50rpx;
+}
+.delivery-cj text,.delivery-yj text{
+  font-size: 22rpx;
+  color:#424242 ;
+}
+.delivery-prc{
+  color:#eb4739 ;
+}
+.delivery-img{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}

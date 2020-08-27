@@ -1,0 +1,60 @@
+<!--pages/depositDetails/depositDetails.wxml-->
+<view class="viewOrder">
+    <view class="indexDetails-head">{{is_user?'已交押金':'使用中'}}</view>
+        <view class="indexDetails-content" >
+            <view class="shopdetails-img"  wx:for="{{list.item}}" wx:key="index">
+                <image class="shopCar-img" src="{{host+item.img}}"></image>
+                <view style="margin-left: -340rpx;margin-top: 15rpx;line-height: 45rpx;">
+                    <view class="shop-price">{{item.name}}</view>
+                    <view class="shopCar-guige">规格:18.9L</view>
+                </view>
+                <view style="margin-top:10rpx;">
+                    <view class="shop-soldout">￥{{item.unit_price}}</view>
+                    <view class="shopdetails-number">x {{item.num}}</view>
+                </view>
+            </view>
+            <view class="indexDetails-center">
+                <view>
+                    <text>押金桶数量</text>
+                    <text>{{list.deposit_num}}</text>
+                </view>
+                <view>
+                    <text>押金</text>
+                    <text>￥{{list.total_price}}</text>
+                </view>
+            </view>
+        </view>
+        <!-- 退款详情 -->
+        <view class="deposit-refund" wx:if="{{!is_user}}">   
+        <view class="appointment-time" wx:if="{{!list.freeya_use_amount == 0}}">
+            <view>免押金抵用</view>
+            <view wx:if="{{list.freeya_use_amount >0}}">-￥{{list.freeya_use_amount}}</view>
+            <view wx:else>￥0.00</view>
+        </view>
+        <view class="appointment-time">
+            <view>微信支付</view>
+            <view>￥{{list.price?list.price:'0.00'}}</view>
+        </view>
+        </view>
+        <view class="indexDetails-bottom">
+            <view>订单详情</view>
+            <view>
+                <text>订单编号 </text>
+                <text>{{list.id}}</text>
+                <text class="indexDetails-copy" bindtap="copy">复制</text>
+            </view>
+            <view>
+                <text>下单时间 </text>
+                <text>{{list.created}}</text>
+            </view>
+            <view >
+                <text>支付押金时间 </text>
+                <text>{{list.payed}}</text>
+            </view>
+            <view >
+                <text>支付方式 </text>
+                <text>余额支付</text>
+            </view>
+        </view>
+</view>
+

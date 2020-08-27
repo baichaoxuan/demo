@@ -1,0 +1,70 @@
+/* pages/adress/adress.wxss */
+.adress-person,.adress-phone,.adress-adress{
+  display: inline-block;
+  width: 100%;
+  height: 90rpx;
+  line-height: 91rpx;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 27rpx;
+  box-sizing: border-box；
+}
+.adress-person view:last-child,.adress-phone view:last-child{
+  font-size: 27rpx;
+  color: #c3c3c3;
+  padding:0 0 ;
+  padding-top: 17rpx;
+  float:right;
+}
+.receive-goods{
+  width: 100%;
+  height: 68rpx;
+  background-color: #ffffff;
+  padding: 0 34rpx;
+  box-sizing: border-box;
+  font-size: 27rpx;
+  color: #c3c3c3;
+}
+.adress-input{
+  width: 100%;
+  height: 68rpx;
+  background-color: #ffffff;
+  padding: 0 34rpx;
+  box-sizing: border-box;
+  font-size: 27rpx;
+  color: #c3c3c3;
+}
+.picker-area {
+  float: right;
+}
+  
+.adress-submit{
+  position: absolute;
+  left: 50%;
+  bottom: 24rpx;
+  margin-left: -348rpx;
+  width: 696rpx;
+	height: 72rpx;
+	background-color: #4c92f7;
+  border-radius: 36rpx;
+  font-size: 27rpx;
+	color: #ffffff;
+}
+.address-mr{
+  height: 91rpx;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 34rpx;
+  align-items: center;
+  font-size: 25rpx;
+}
+.address-del{
+  height: 91rpx;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  color: #df0000;
+  margin-top: 8rpx;
+}
